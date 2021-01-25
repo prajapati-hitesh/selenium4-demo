@@ -73,30 +73,34 @@ public class UserAgentSimulationTests extends BaseDriver {
         FileUtils.writeByteArrayToFile(new File(ssFileName), imageAsBytes);
 
         // Load Php Travels
-        driver.get("https://www.phptravels.net/");
+        driver.get("https://www.amazon.in/");
 
-        // Thread Sleep
+        // wait for page to load
         Thread.sleep(5000);
     }
 
     @DataProvider(name = "userAgents")
     public Object[] getUserAgents() {
-        // Get Example of User Agents from this link -> https://developers.whatismybrowser.com/useragents/explore/
+        // Get Example of User Agents from below link
+        // 01 - https://developers.whatismybrowser.com/useragents/explore/
+        // 02 - https://deviceatlas.com/blog/list-of-user-agent-strings
         // Detect User Agent At -> https://gs.statcounter.com/detect
         return new Object[][]{
-                // Hitesh PC UA
-                {"Current Machine UA", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 RuxitSynthetic/1.0 v8389930799 t38550 ath9b965f92 altpub cvcv=2"},
-                {"Chrome On Windows", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"},
-                {"Chrome On Linux", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"},
-                {"Microsoft Edge on Windows", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134"},
-                {"Chrome on Android", "Mozilla/5.0 (Linux; Android 10.0; RedMi Note 5 Build/RB3N5C; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36"},
-                {"Chrome on Android", "Mozilla/5.0 (Linux; Android 7.1.2; AFTMM Build/NS6265; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/70.0.3538.110 Mobile Safari/537.36"},
-                {"Firefox on Linux", "Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:24.0) Gecko/20100101 Firefox/24.0"},
-                {"Safari on Mac OSX", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15"},
-                {"Safari on iOS", "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Mobile/15E148 Safari/604.1"},
-                {"Facebook app on Apple Iphone 7 Plus", "Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBDV/iPhone9,4;FBMD/iPhone;FBSN/iOS;FBSV/12.3.1;FBSS/3;FBID/phone;FBLC/en_US;FBOP/5;FBCR/AT&T]"},
-                {"Chrome on Nexus 6P", "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36"},
-                {"Chrome on IphoneXS", "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/69.0.3497.105 Mobile/15E148 Safari/605.1"}
+                // Mobile Devices
+                {"Apple iPhone XR (Safari)", "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1"},
+                {"Apple iPhone XS Max (Firefox)", "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/13.2b11866 Mobile/16A366 Safari/605.1.15"},
+                {"Nexus 6P (Chrome)", "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36"},
+                {"IphoneXS (Chrome)", "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/69.0.3497.105 Mobile/15E148 Safari/605.1"},
+                {"Redmi Note 5 (Chrome)", "Mozilla/5.0 (Linux; Android 10.0; RedMi Note 5 Build/RB3N5C; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36"},
+
+                // Desktop User Agents
+                {"Windows 10 (Chrome)", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"},
+                {"Windows 7 (Chrome)", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"},
+                {"Linux (Chrome)", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"},
+                {"Windows 10 (Edge)", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246"},
+                {"Ubuntu (Firefox)", "Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:24.0) Gecko/20100101 Firefox/24.0"},
+                {"Mac OSX (Safari)", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"},
+
         };
     }
 }
