@@ -1,14 +1,17 @@
 package com.qa.selenium4.demo.base;
 
+import com.qa.selenium4.demo.constants.FileConstants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.File;
 import java.time.Duration;
 
 public class BaseDriver {
@@ -19,8 +22,12 @@ public class BaseDriver {
     public void initializeBrowser() {
         WebDriverManager.chromedriver().setup();
 
+        ChromeOptions chromeOptions = new ChromeOptions();
+        // Load Ad Blocker Extension
+        chromeOptions.addExtensions(new File(FileConstants.CHROME_EXTENSION_DIR + "Ultimate AdBlocker_2_2_6_0.crx"));
+
         // Initialize Driver
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         logger.info("Browser Initialized.");
 
         // Maximize window
