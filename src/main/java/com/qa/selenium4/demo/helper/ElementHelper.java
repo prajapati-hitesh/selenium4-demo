@@ -60,6 +60,9 @@ public class ElementHelper {
     public static String getText(WebDriver driver, WebElement element) {
         String innerText;
 
+        // Move To Element
+        ActionHelper.moveToElement(driver, element);
+
         // Highlight Element
         JavaScriptHelper.highlightElement(driver, element);
 
