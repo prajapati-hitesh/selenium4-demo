@@ -33,4 +33,13 @@ public class SauceDemoLoginPage {
                 .above(By.id("login_credentials"))
         );
     }
+
+    public static void waitForPageToLoad(WebDriver driver) {
+        new WebDriverWait(driver, Duration.ofMinutes(5))
+                .until(ExpectedConditions.and(
+                        ExpectedConditions.visibilityOfElementLocated(By.id("user-name")),
+                        ExpectedConditions.visibilityOfElementLocated(By.id("password")),
+                        ExpectedConditions.visibilityOfElementLocated(By.id("login-button"))
+                ));
+    }
 }
