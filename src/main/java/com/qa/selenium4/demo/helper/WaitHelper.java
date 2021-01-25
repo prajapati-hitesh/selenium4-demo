@@ -18,4 +18,11 @@ public class WaitHelper {
         return WaitHelper.getWaitObject(driver, duration)
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
+
+    public static void hardWait(int timeInSeconds) {
+        try {
+            Thread.sleep(timeInSeconds * 1000);
+        } catch (Exception ignored) {
+        }
+    }
 }
