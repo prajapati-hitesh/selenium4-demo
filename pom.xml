@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.qa.selenium4.demo</groupId>
+    <artifactId>selenium4-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <selenium4.version>4.0.0-alpha-7</selenium4.version>
+        <testng.version>7.3.0</testng.version>
+        <webdriver.manager.version>4.2.2</webdriver.manager.version>
+        <log4j2.version>2.14.0</log4j2.version>
+        <passay.version>1.6.0</passay.version>
+        <java.faker.version>1.0.2</java.faker.version>
+        <jfairy.version>0.6.4</jfairy.version>
+        <java.tupple.version>1.2</java.tupple.version>
+        <apache.poi.version>4.1.2</apache.poi.version>
+        <apache.commons.config2.version>2.7</apache.commons.config2.version>
+        <apache.commons.beantutils.version>1.9.4</apache.commons.beantutils.version>
+        <apache.commons.email.version>1.5</apache.commons.email.version>
+        <joda.time.version>2.10.9</joda.time.version>
+        <regex.string.generator.version>1.3</regex.string.generator.version>
+        <oshi.core.version>5.3.7</oshi.core.version>
+        <jsoup.parser.version>1.13.1</jsoup.parser.version>
+        <google.guava.version>30.1-jre</google.guava.version>
+        <selenium.shutterbug.version>1.3</selenium.shutterbug.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Following plugin executes the testng tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <!-- Suite testng xml file to consider for test execution -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>hp-device-testng-runner.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Selenium automates browsers. That's it! What you do with that power is entirely up to you.  -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium4.version}</version>
+        </dependency>
+
+        <!-- Testing framework for Java -->
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <!-- Automatic Selenium WebDriver binaries management in runtime for Java -->
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdriver.manager.version}</version>
+        </dependency>
+
+        <!-- The Apache Log4j API -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+
+        <!-- The Apache Log4j Implementation -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+
+        <!-- hThe Apache Log4j SLF4J API binding to Log4j 2 Core -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+
+        <!-- Library for checking that a password complies with a custom set of rules -->
+        <!-- https://mvnrepository.com/artifact/org.passay/passay -->
+        <dependency>
+            <groupId>org.passay</groupId>
+            <artifactId>passay</artifactId>
+            <version>${passay.version}</version>
+        </dependency>
+
+        <!--
+            This library is a port of Ruby's stympy/faker gem (as well as Perl's Data::Faker library) that generates fake data.
+            It's useful when you're developing a new project and need some pretty data for showcase
+        -->
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${java.faker.version}</version>
+        </dependency>
+
+        <!-- Java fake data generator -->
+        <!-- https://mvnrepository.com/artifact/com.devskiller/jfairy -->
+        <dependency>
+            <groupId>com.devskiller</groupId>
+            <artifactId>jfairy</artifactId>
+            <version>${jfairy.version}</version>
+        </dependency>
+
+        <!-- Java library for tuples in Java. -->
+        <!-- https://mvnrepository.com/artifact/org.javatuples/javatuples -->
+        <dependency>
+            <groupId>org.javatuples</groupId>
+            <artifactId>javatuples</artifactId>
+            <version>${java.tupple.version}</version>
+        </dependency>
+
+        <!-- Apache POI - Java API To Access Microsoft Format Files -->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+
+        <!-- Apache POI - Java API To Access Microsoft Format Files -->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+
+        <!-- Tools to assist in the reading of configuration/preferences files in various formats -->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-configuration2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-configuration2</artifactId>
+            <version>${apache.commons.config2.version}</version>
+        </dependency>
+
+        <!-- Apache Commons BeanUtils provides an easy-to-use but flexible wrapper around reflection and introspection. -->
+        <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${apache.commons.beantutils.version}</version>
+        </dependency>
+
+        <!-- Apache Commons Email aims to provide an API for sending email.
+             It is built on top of the JavaMail API, which it aims to simplify. -->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>${apache.commons.email.version}</version>
+        </dependency>
+
+
+        <!-- Date and time library to replace JDK date handling -->
+        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda.time.version}</version>
+        </dependency>
+
+        <!-- Strings generator based on the regular expression pattern -->
+        <!-- https://mvnrepository.com/artifact/com.github.curious-odd-man/rgxgen -->
+        <dependency>
+            <groupId>com.github.curious-odd-man</groupId>
+            <artifactId>rgxgen</artifactId>
+            <version>${regex.string.generator.version}</version>
+        </dependency>
+
+        <!--
+            A JNA-based (native) operating system information library for Java that aims to provide a cross-platform implementation
+            to retrieve system information, such as version, memory, CPU, disk, battery, etc.
+        -->
+        <!-- https://mvnrepository.com/artifact/com.github.oshi/oshi-core -->
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>${oshi.core.version}</version>
+        </dependency>
+
+        <!--
+            jsoup is a Java library for working with real-world HTML.
+            It provides a very convenient API for extracting and manipulating data, using the best of DOM, CSS,
+             and jquery-like methods.
+
+             jsoup implements the WHATWG HTML5 specification, and parses HTML to the same DOM as modern browsers do.
+         -->
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.parser.version}</version>
+        </dependency>
+
+        <!-- Guava is a suite of core and expanded libraries that include utility classes, Google's collections, I/O classes, and much more. -->
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${google.guava.version}</version>
+        </dependency>
+
+        <!-- Utility library to create customized screenshots using Selenium WebDriver and Java AWT -->
+        <!-- https://github.com/assertthat/selenium-shutterbug -->
+        <!-- https://mvnrepository.com/artifact/com.assertthat/selenium-shutterbug -->
+        <dependency>
+            <groupId>com.assertthat</groupId>
+            <artifactId>selenium-shutterbug</artifactId>
+            <version>${selenium.shutterbug.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-java</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+</project>

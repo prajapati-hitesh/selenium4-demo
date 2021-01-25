@@ -1,6 +1,6 @@
 
 ## Directory Exclusion
-./.idea/
+/.idea/
 /target/
 /screenshot/
 
