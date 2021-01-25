@@ -18,15 +18,15 @@ public class CDPConsoleTests extends BaseDriver {
     // https://applitools.com/blog/selenium-4-chrome-devtools/
     // https://www.swtestacademy.com/selenium-4-chrome-dev-tools-samples/
     // https://chromedevtools.github.io/devtools-protocol/tot/Log/
-    // Load Insecure Web Site
+    // Simulate Network Speed - Done
+    // Simulating Device Mode - Done
+    // Changing User Agents - Done
+    // Load Insecure Web Site - Done
+    // Mocking Geolocation - Done
+    // Basic Authentication
     // Access Console logs
     // Capture HTTP Requests
-    // Simulate Network Speed
-    // Mocking Geolocation
-    // Simulating Device Mode
     // Capturing Performance Metrics
-    // Basic Authentication
-    // Changing User Agents
 
     @Test(priority = 0)
     public void phpTravelsConsoleTest() {
