@@ -1,0 +1,16 @@
+
+## Directory Exclusion
+./.idea/
+/target/
+/screenshot/
+
+## Recursive Exclusion
+./.idea/*
+/target/*
+/screenshot/*
+
+## Files exclusion
+*.iml
+*.png
+*.jpg
+*.jpeg
