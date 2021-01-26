@@ -23,7 +23,8 @@ public class CDPConsoleTests extends BaseDriver {
     // Changing User Agents - Done
     // Load Insecure Web Site - Done
     // Mocking Geolocation - Done
-    // Basic Authentication
+    // Basic Authentication - Done
+    // Block Specific Requests
     // Access Console logs
     // Capture HTTP Requests
     // Capturing Performance Metrics
