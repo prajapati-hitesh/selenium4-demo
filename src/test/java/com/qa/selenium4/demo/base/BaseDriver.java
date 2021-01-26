@@ -20,11 +20,14 @@ public class BaseDriver {
 
     @BeforeMethod(alwaysRun = true)
     public void initializeBrowser() {
+        System.setProperty("webdriver.chrome.silentOutput", "true");
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions chromeOptions = new ChromeOptions();
         // Load Ad Blocker Extension
         chromeOptions.addExtensions(new File(FileConstants.CHROME_EXTENSION_DIR + "Ultimate AdBlocker_2_2_6_0.crx"));
+        // Disable Info bars
+        chromeOptions.addArguments("disable-infobars");
 
         // Initialize Driver
         driver = new ChromeDriver(chromeOptions);
