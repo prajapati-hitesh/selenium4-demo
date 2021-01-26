@@ -23,7 +23,7 @@ public class NetworkInterceptTests extends BaseDriver {
         chromeDevTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
         // Block Specific file types by intercepting network
-        chromeDevTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg", "*.png", "*.jpeg", "*.svg")));
+        chromeDevTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg", "*.png", "*.jpeg", "*.svg", "*.gif")));
 
         // Load URl
         driver.get("https://www.amazon.in/");
@@ -86,7 +86,7 @@ public class NetworkInterceptTests extends BaseDriver {
         chromeDevTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
         // Block Specific file types by intercepting network
-        chromeDevTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg", "*.png", "*.jpeg", "*.svg", "*.css", "*.scss")));
+        chromeDevTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg", "*.png", "*.jpeg", "*.svg", "*.css", "*.scss", "*.gif")));
 
         // Load URl
         driver.get("https://www.amazon.in/");
@@ -107,7 +107,7 @@ public class NetworkInterceptTests extends BaseDriver {
         chromeDevTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
         // Block Specific file types by intercepting network
-        chromeDevTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg", "*.png", "*.jpeg", "*.svg", "*.css", "*.scss", "*.js")));
+        chromeDevTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg", "*.png", "*.jpeg", "*.svg", "*.css", "*.scss", "*.js", "*.gif")));
 
         // Load URl
         driver.get("https://www.amazon.in/");
