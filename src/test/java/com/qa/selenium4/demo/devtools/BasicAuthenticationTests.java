@@ -17,7 +17,7 @@ import java.util.Optional;
 
 public class BasicAuthenticationTests extends BaseDriver {
 
-    @Test(priority = 1, description = "Basic authentication using URL")
+    @Test(priority = 0, description = "Basic authentication using URL")
     public void basicAuthenticationUsingUrlTest() {
         // Load URl
         driver.get("https://guest:guest@jigsaw.w3.org/HTTP/Basic/");
