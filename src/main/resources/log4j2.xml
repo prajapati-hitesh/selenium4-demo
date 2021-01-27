@@ -13,7 +13,7 @@
             </PatternLayout>
         </Console>
 
-        <!-- &lt;!&ndash; Following appender will be used to write logs to file &ndash;&gt;
+         <!-- Following appender will be used to write logs to file -->
          <RollingFile
                  name="RollingFile"
                  fileName="${LOG_DIR_PATH}/${date:dd-MM-yyyy}/${LOG_FILE_NAME}-${date:dd-MM-yyyy-hh.mm.ss}.log"
@@ -26,14 +26,14 @@
                  <SizeBasedTriggeringPolicy size="20MB"/>
              </Policies>
              <DefaultRolloverStrategy max="10"/>
-         </RollingFile>-->
+         </RollingFile>
 
     </Appenders>
 
     <Loggers>
         <Logger name="com.qa" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
-            <!--<AppenderRef ref="RollingFile"/>-->
+            <AppenderRef ref="RollingFile"/>
         </Logger>
     </Loggers>
 </Configuration>
