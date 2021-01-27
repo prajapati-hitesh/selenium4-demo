@@ -66,7 +66,7 @@ public class CaptureHTTPRequestTests extends BaseDriver {
 
             JSONObject headerJsonObject = new JSONObject();
             request.getHeaders().toJson().forEach((key, value) -> {
-                headerJsonObject.put(StringUtility.getFormattedKey(key), value);
+                headerJsonObject.put(key, value);
             });
 
             // Attach Header to request object
@@ -99,7 +99,7 @@ public class CaptureHTTPRequestTests extends BaseDriver {
             responseJsonObject.put("StatusCode", response.getStatus());
             responseJsonObject.put("StatusText", !StringUtils.isBlank(response.getStatusText()) ? response.getStatusText() : JSONObject.NULL);
             responseJsonObject.put("MimeType", response.getMimeType());
-            responseJsonObject.put("RemoteIP", response.getRemoteIPAddress().get());
+            responseJsonObject.put("RemoteIP", response.getRemoteIPAddress().get() + ":" + response.getRemotePort().get());
             responseJsonObject.put("FromDiskCache?", response.getFromDiskCache().get());
             responseJsonObject.put("Timing", response.getTiming().get().getRequestTime());
             responseJsonObject.put("ResponseTime", response.getResponseTime().get().toString());
@@ -108,7 +108,7 @@ public class CaptureHTTPRequestTests extends BaseDriver {
             JSONObject responseHeadersJsonObject = new JSONObject();
 
             response.getHeaders().toJson().forEach((key, value) -> {
-                responseHeadersJsonObject.put(StringUtility.getFormattedKey(key), value);
+                responseHeadersJsonObject.put(key, value);
             });
 
             // Add To Response Json Object
@@ -133,7 +133,7 @@ public class CaptureHTTPRequestTests extends BaseDriver {
         // Sleep for 5
         WaitHelper.hardWait(3);
 
-        System.out.println(capturedRequestJsonArray);
+        System.out.println(sentNetworkLogs);
         System.out.println(receivedNetworkLogs);
     }
 }
