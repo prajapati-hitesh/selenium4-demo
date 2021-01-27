@@ -3,14 +3,17 @@
 /.idea/
 /target/
 /screenshot/
+/automation-logs/
 
 ## Recursive Exclusion
 /.idea/*
 /target/*
 /screenshot/*
+/automation-logs/*
 
 ## Files exclusion
 *.iml
 *.png
 *.jpg
 *.jpeg
+*.log
