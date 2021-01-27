@@ -28,7 +28,7 @@ public class ConsoleLogTests extends BaseDriver {
     // Simulate Network Speed       - DONE
     // Simulating Device Mode       - DONE
     // Changing User Agents         - DONE
-    // Capture HTTP Requests        - IN-PROGRESS
+    // Capture HTTP Requests        - DONE
     // Capturing Performance Metrics ----- ***
 
     @Test(priority = 0, description = "Get console logs using Chrome Dev Tools")
