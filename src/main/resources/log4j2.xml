@@ -13,20 +13,20 @@
             </PatternLayout>
         </Console>
 
-         <!-- Following appender will be used to write logs to file -->
-         <RollingFile
-                 name="RollingFile"
-                 fileName="${LOG_DIR_PATH}/${date:dd-MM-yyyy}/${LOG_FILE_NAME}-${date:dd-MM-yyyy-hh.mm.ss}.log"
-                 filePattern="${LOG_DIR_PATH}/${date:dd-MM-yyyy}/${LOG_FILE_NAME}-${date:dd-MM-yyyy-hh.mm.ss}-%i.log.gz"
-                 ignoreExceptions="false">
-             <PatternLayout>
-                 <Pattern>${LOG_PATTERN}</Pattern>
-             </PatternLayout>
-             <Policies>
-                 <SizeBasedTriggeringPolicy size="20MB"/>
-             </Policies>
-             <DefaultRolloverStrategy max="10"/>
-         </RollingFile>
+        <!-- Following appender will be used to write logs to file -->
+        <RollingFile
+                name="RollingFile"
+                fileName="${LOG_DIR_PATH}/${date:dd-MM-yyyy}/${LOG_FILE_NAME}-${date:dd-MM-yyyy-hh.mm.ss}.log"
+                filePattern="${LOG_DIR_PATH}/${date:dd-MM-yyyy}/${LOG_FILE_NAME}-${date:dd-MM-yyyy-hh.mm.ss}-%i.log.gz"
+                ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
 
     </Appenders>
 
