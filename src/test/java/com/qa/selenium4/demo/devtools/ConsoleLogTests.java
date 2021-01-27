@@ -20,15 +20,15 @@ public class ConsoleLogTests extends BaseDriver {
     // https://applitools.com/blog/selenium-4-chrome-devtools/
     // https://www.swtestacademy.com/selenium-4-chrome-dev-tools-samples/
     // https://chromedevtools.github.io/devtools-protocol/tot/Log/
-    // Basic Authentication - Done
-    // Access Console logs - Pending ----- ***
-    // Mocking Geolocation - Done
-    // Load Insecure Web Site - Done
-    // Block Specific Requests - Done
-    // Simulate Network Speed - Done
-    // Simulating Device Mode - Done
-    // Changing User Agents - Done
-    // Capture HTTP Requests ----- ***
+    // Basic Authentication         - DONE
+    // Access Console logs          - DONE
+    // Mocking Geolocation          - DONE
+    // Load Insecure Web Site       - DONE
+    // Block Specific Requests      - DONE
+    // Simulate Network Speed       - DONE
+    // Simulating Device Mode       - DONE
+    // Changing User Agents         - DONE
+    // Capture HTTP Requests        - IN-PROGRESS
     // Capturing Performance Metrics ----- ***
 
     @Test(priority = 0, description = "Get console logs using Chrome Dev Tools")
