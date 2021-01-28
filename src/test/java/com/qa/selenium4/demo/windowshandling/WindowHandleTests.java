@@ -2,12 +2,12 @@ package com.qa.selenium4.demo.windowshandling;
 
 import com.qa.selenium4.demo.base.BaseDriver;
 import com.qa.selenium4.demo.helper.ElementHelper;
+import com.qa.selenium4.demo.pages.saucedemo.SauceDemoLoginPage;
 import com.qa.selenium4.demo.pages.theinternet.TheInternetHomePage;
 import com.qa.selenium4.demo.pages.theinternet.TheInternetLoginPage;
 import com.qa.selenium4.utils.StringUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -20,10 +20,13 @@ import java.util.List;
 public class WindowHandleTests extends BaseDriver {
     private static final Logger logger = LogManager.getLogger(WindowHandleTests.class.getName());
 
-    @Test(priority = 0)
+    @Test(priority = 0, description = "Working with Windows using Selenium 4")
     public void windowSwitchTest() {
         // Load URL in 1st window
-        driver.get("https://phptravels.net/");
+        driver.get("https://www.saucedemo.com/");
+
+        // Wait for Sauce Login Page to be ready
+        SauceDemoLoginPage.waitForPageToLoad(driver);
 
         // Open 2nd Window
         driver.switchTo().newWindow(WindowType.WINDOW);
@@ -42,8 +45,42 @@ public class WindowHandleTests extends BaseDriver {
         // Switch to 1st window
         driver.switchTo().window(windows.get(0));
 
-        // Click on Flights link
-        ElementHelper.click(driver, driver.findElement(By.linkText("FLIGHTS")));
+        // Login To Sauce Page
+        SauceDemoLoginPage.usernameElement(driver).sendKeys("standard_user");
+        SauceDemoLoginPage.passwordElement(driver).sendKeys("secret_sauce");
+        SauceDemoLoginPage.loginButtonElement(driver).click();
+    }
+
+    @Test(priority = 1, description = "Working with Multiple Tabs Using Selenium 4")
+    public void tabSwitchTest() {
+        // Load URL in 1st window
+        driver.get("https://www.saucedemo.com/");
+
+        // Wait for Sauce Login Page to be ready
+        SauceDemoLoginPage.waitForPageToLoad(driver);
+
+        // Open 2nd Window
+        driver.switchTo().newWindow(WindowType.TAB);
+
+        // Load URL in 2nd Window
+        driver.get("https://the-internet.herokuapp.com/");
+
+        // Login
+        theInternetLogin(driver);
+
+        // Switch to 1st window
+        List<String> windows = new ArrayList<>(driver.getWindowHandles());
+
+        // Print window IDs
+        windows.forEach(logger::info);
+
+        // Switch to 1st window
+        driver.switchTo().window(windows.get(0));
+
+        // Login To Sauce Page
+        SauceDemoLoginPage.usernameElement(driver).sendKeys("standard_user");
+        SauceDemoLoginPage.passwordElement(driver).sendKeys("secret_sauce");
+        SauceDemoLoginPage.loginButtonElement(driver).click();
     }
 
     private void theInternetLogin(WebDriver driverObj) {
