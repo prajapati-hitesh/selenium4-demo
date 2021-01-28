@@ -4,7 +4,6 @@ import com.qa.selenium4.demo.base.BaseDriver;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import com.qa.selenium4.json.JSONArray;
 import com.qa.selenium4.json.JSONObject;
-import com.qa.selenium4.utils.StringUtility;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
