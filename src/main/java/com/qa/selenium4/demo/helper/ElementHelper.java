@@ -30,6 +30,7 @@ public class ElementHelper {
         JavaScriptHelper.highlightElement(driver, element);
 
         // Click
+        element.clear();
         element.sendKeys(charSequence);
 
         // Unhighlight Element
