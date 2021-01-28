@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 public class RelativeLocatorTests extends BaseDriver {
     private static final Logger logger = LogManager.getLogger(RelativeLocatorTests.class.getName());
 
-    @Test(priority = 0)
+    @Test(priority = 0, description = "Locate elements using RelativeLocator strategy for Selenium Easy Page")
     private void registerTestOnSeleniumEasyPage() {
         driver.get("https://www.seleniumeasy.com/test/input-form-demo.html");
 
@@ -49,7 +49,7 @@ public class RelativeLocatorTests extends BaseDriver {
         logger.info("Time Taken To Perform Action : " + stopWatch.toString());
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "Locate elements using RelativeLocator strategy for Sauce Demo page")
     public void sauceDemoTest() {
         driver.get("https://www.saucedemo.com/index.html");
 
