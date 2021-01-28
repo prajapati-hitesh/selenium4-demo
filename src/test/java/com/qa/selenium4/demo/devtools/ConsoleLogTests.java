@@ -29,7 +29,7 @@ public class ConsoleLogTests extends BaseDriver {
     // Simulating Device Mode       - DONE
     // Changing User Agents         - DONE
     // Capture HTTP Requests        - DONE
-    // Capturing Performance Metrics ----- ***
+    // Capturing Performance Metrics- DONE
 
     @Test(priority = 0, description = "Get console logs using Chrome Dev Tools")
     public void amazonGetConsoleLogUsingCDPTest() {
