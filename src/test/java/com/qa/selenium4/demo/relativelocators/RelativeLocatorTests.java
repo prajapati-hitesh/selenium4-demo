@@ -110,9 +110,35 @@ public class RelativeLocatorTests extends BaseDriver {
         // Wait for 5 sec
         WaitHelper.hardWait(5);
 
-        BoundingRectHelper boundingRectHelper = new BoundingRectHelper(driver, driver.findElement(By.id("passwd")));
-
         // Enter Email Address
         ElementHelper.sendKeys(driver, emailInputElement, "hiteshprajapati1992@gmail.com");
+
+        // Get Bounding Rect Values
+        BoundingRectHelper boundingRectHelper = new BoundingRectHelper(driver, driver.findElement(By.id("passwd")));
+
+        // Highlight area above "Password" field
+        boundingRectHelper.highlightAbove("red");
+        WaitHelper.hardWait(5);
+
+        // Refresh Page
+        driver.navigate().refresh();
+
+        // Highlight area to the left of "Password" field
+        boundingRectHelper.highlightToLeftOf("yellow");
+        WaitHelper.hardWait(5);
+
+        // Refresh Page
+        driver.navigate().refresh();
+
+        // Highlight area to the Below of "Password" field
+        boundingRectHelper.highlightBelow("black");
+        WaitHelper.hardWait(5);
+
+        // Refresh Page
+        driver.navigate().refresh();
+
+        // Highlight area to the Right of "Password" field
+        boundingRectHelper.highlightToRightOf("green");
+        WaitHelper.hardWait(5);
     }
 }
