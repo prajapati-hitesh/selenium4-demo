@@ -4,12 +4,14 @@
 /target/
 /screenshot/
 /automation-logs/
+/.settings/
 
 ## Recursive Exclusion
 /.idea/*
 /target/*
 /screenshot/*
 /automation-logs/*
+/.settings/*
 
 ## Files exclusion
 *.iml
@@ -17,3 +19,7 @@
 *.jpg
 *.jpeg
 *.log
+*.classpath
+*.factorypath
+*.project
+*.class
