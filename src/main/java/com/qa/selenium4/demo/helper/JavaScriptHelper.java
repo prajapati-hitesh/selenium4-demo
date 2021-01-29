@@ -15,7 +15,7 @@ public class JavaScriptHelper {
 
     public static void highlightElement(WebDriver driver, WebElement element) {
         try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='2px solid red'", element);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style', 'background-color:#FFFF66; border:2px solid red;');", element);
         } catch (Exception ignored) {
         }
     }
@@ -26,7 +26,7 @@ public class JavaScriptHelper {
 
     public static void unHighlightElement(WebDriver driver, WebElement element) {
         try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='0px solid red'", element);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style', 'background-color:#FFFF66; border:2px solid red;');", element);
         } catch (Exception ignored) {
         }
     }
