@@ -57,10 +57,47 @@ public class BoundingRectHelper {
         return Double.parseDouble(boundingRectTransformedEntryMap.get("height"));
     }
 
-    public void highlightAbove() {
+    public void highlightAbove(String hexCode) {
+        drawRectangle(
+                0,
+                0,
+                WindowHelper.getWebPageSize(driverObj).getWidth(),
+                getTopY(),
+                hexCode
+        );
     }
 
-    private void drawRectangle(double xCord, double yCord, double width, double height) {
+    public void highlightToLeftOf(String hexCode) {
+        drawRectangle(
+                0,
+                0,
+                getTopX(),
+                WindowHelper.getFullPageHeight(driverObj),
+                hexCode
+        );
+    }
+
+    public void highlightBelow(String hexCode) {
+        drawRectangle(
+                0,
+                getBottomRightY(),
+                WindowHelper.getWebPageSize(driverObj).getWidth(),
+                WindowHelper.getFullPageHeight(driverObj),
+                hexCode
+        );
+    }
+
+    public void highlightToRightOf(String hexCode) {
+        drawRectangle(
+                getBottomRightX(),
+                0,
+                WindowHelper.getWindowSize(driverObj).getWidth() - getBottomRightX(),
+                WindowHelper.getFullPageHeight(driverObj),
+                hexCode
+        );
+    }
+
+    private void drawRectangle(double xCord, double yCord, double width, double height, String hexColor) {
         String drawCanvasRectJs =
                 "var x = " + xCord + ";\n" +
                         "var y = " + yCord + ";\n" +
@@ -87,8 +124,8 @@ public class BoundingRectHelper {
                         "\n" +
                         "//Draw rectangle\n" +
                         "context.beginPath();\n" +
-                        "context.lineWidth = '2';\n" +
-                        "context.strokeStyle = 'red';\n" +
+                        "context.lineWidth = '5';\n" +
+                        "context.strokeStyle = '" + hexColor + "';\n" +
                         "context.rect(x, y, width, height);\n" +
                         "context.stroke();\n";
         // Execute Script
