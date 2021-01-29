@@ -27,6 +27,7 @@ public class ConsoleLogTests extends BaseDriver {
     // Block Specific Requests      - DONE
     // Simulate Network Speed       - DONE
     // Simulating Device Mode       - DONE
+    // Simulate TimeZone            - DONE
     // Changing User Agents         - DONE
     // Capture HTTP Requests        - DONE
     // Capturing Performance Metrics- DONE
