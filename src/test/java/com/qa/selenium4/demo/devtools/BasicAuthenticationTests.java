@@ -5,6 +5,7 @@ import com.qa.selenium4.demo.helper.ElementHelper;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import org.apache.xmlbeans.impl.util.Base64;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v87.network.Network;
 import org.openqa.selenium.devtools.v87.network.model.Headers;
@@ -22,8 +23,15 @@ public class BasicAuthenticationTests extends BaseDriver {
         // Load URl
         driver.get("https://guest:guest@jigsaw.w3.org/HTTP/Basic/");
 
+        WebElement successLabelElement = driver
+                .findElement(By.xpath("//p[contains(normalize-space(),'Your browser made it!')]"));
+
         // Get Message
-        String loginSuccessMsg = ElementHelper.getText(driver, driver.findElement(By.xpath("//p[contains(normalize-space(),'Your browser made it!')]")));
+        String loginSuccessMsg = ElementHelper
+                .getText(
+                        driver,
+                        successLabelElement
+                );
 
         // Wait for 2 min
         WaitHelper.hardWait(2);
@@ -45,17 +53,25 @@ public class BasicAuthenticationTests extends BaseDriver {
 
         // Send Authentication Header
         Map<String, Object> requestHeaderMap = new LinkedHashMap<>();
-        String basicAuthToken = "Basic " + new String(Base64.encode(String.format("%s:%s", "guest", "guest").getBytes()));
+
+        // Create Basic Authentication String to pass it as Header With Request
+        String basicAuthToken = "Basic " +
+                new String(Base64.encode(String.format("%s:%s", "guest", "guest").getBytes()));
+
+        // Set value of Authorization to basic auth token
         requestHeaderMap.putIfAbsent("Authorization", basicAuthToken);
 
         // Send Request header using CDP
         devTools.send(Network.setExtraHTTPHeaders(new Headers(requestHeaderMap)));
 
         // Load URL
-        driver.get("https://guest:guest@jigsaw.w3.org/HTTP/Basic/");
+        driver.get("https://jigsaw.w3.org/HTTP/Basic/");
+
+        WebElement successLabelElement = driver
+                .findElement(By.xpath("//p[contains(normalize-space(),'Your browser made it!')]"));
 
         // Get Message
-        String loginSuccessMsg = ElementHelper.getText(driver, driver.findElement(By.xpath("//p[contains(normalize-space(),'Your browser made it!')]")));
+        String loginSuccessMsg = ElementHelper.getText(driver, successLabelElement);
 
         // Wait for 2 min
         WaitHelper.hardWait(2);
