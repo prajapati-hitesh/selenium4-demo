@@ -46,7 +46,8 @@ public class SimulateTimezoneTests extends BaseDriver {
         chromeDevTools.createSession();
 
         // Simulate Time Zone using TimeZone Id -> This Switch is still Experimental
-        // Get TimeZone Ids from here -> https://docs.oracle.com/middleware/12212/wcs/tag-ref/MISC/TimeZones.html
+        // Get TimeZone Ids Below
+        // https://docs.oracle.com/middleware/12212/wcs/tag-ref/MISC/TimeZones.html
         chromeDevTools.send(Emulation.setTimezoneOverride("Europe/London"));
 
         // Load URL
