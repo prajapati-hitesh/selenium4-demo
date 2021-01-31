@@ -1,7 +1,6 @@
 package com.qa.selenium4.demo.relativelocators;
 
 import com.qa.selenium4.demo.base.BaseDriver;
-import com.qa.selenium4.demo.helper.BoundingRectHelper;
 import com.qa.selenium4.demo.helper.ElementHelper;
 import com.qa.selenium4.demo.helper.JavaScriptHelper;
 import com.qa.selenium4.demo.helper.WaitHelper;
@@ -112,33 +111,5 @@ public class RelativeLocatorTests extends BaseDriver {
 
         // Enter Email Address
         ElementHelper.sendKeys(driver, emailInputElement, "hiteshprajapati1992@gmail.com");
-
-        // Get Bounding Rect Values
-        BoundingRectHelper boundingRectHelper = new BoundingRectHelper(driver, driver.findElement(By.id("passwd")));
-
-        // Highlight area above "Password" field
-        boundingRectHelper.highlightAbove("red");
-        WaitHelper.hardWait(5);
-
-        // Refresh Page
-        driver.navigate().refresh();
-
-        // Highlight area to the left of "Password" field
-        boundingRectHelper.highlightToLeftOf("yellow");
-        WaitHelper.hardWait(5);
-
-        // Refresh Page
-        driver.navigate().refresh();
-
-        // Highlight area to the Below of "Password" field
-        boundingRectHelper.highlightBelow("black");
-        WaitHelper.hardWait(5);
-
-        // Refresh Page
-        driver.navigate().refresh();
-
-        // Highlight area to the Right of "Password" field
-        boundingRectHelper.highlightToRightOf("green");
-        WaitHelper.hardWait(5);
     }
 }
