@@ -21,6 +21,8 @@ public class ElementHelper {
         // Click
         element.click();
 
+        WaitHelper.hardWaitInMillis(400);
+
         // Unhighlight Element
         JavaScriptHelper.unHighlightElement(driver, element);
     }
@@ -33,6 +35,8 @@ public class ElementHelper {
         element.clear();
         element.sendKeys(charSequence);
 
+        WaitHelper.hardWaitInMillis(400);
+
         // Unhighlight Element
         JavaScriptHelper.unHighlightElement(driver, element);
     }
@@ -43,6 +47,8 @@ public class ElementHelper {
 
         Select selectElement = new Select(element);
         selectElement.selectByVisibleText(charSequence);
+
+        WaitHelper.hardWaitInMillis(400);
 
         // Unhighlight Element
         JavaScriptHelper.unHighlightElement(driver, element);
@@ -69,6 +75,8 @@ public class ElementHelper {
 
         /// Get Text
         innerText = element.getText();
+
+        WaitHelper.hardWaitInMillis(400);
 
         // Highlight Element
         JavaScriptHelper.unHighlightElement(driver, element);
