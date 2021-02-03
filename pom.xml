@@ -41,7 +41,7 @@
                 <configuration>
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>hp-device-testng-runner.xml</suiteXmlFile>
+                        <suiteXmlFile>selenium-4-tests-runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
