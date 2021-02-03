@@ -26,8 +26,6 @@ public class BaseDriver {
         ChromeOptions chromeOptions = new ChromeOptions();
         // Load Ad Blocker Extension
         chromeOptions.addExtensions(new File(FileConstants.CHROME_EXTENSION_DIR + "Ultimate AdBlocker_2_2_6_0.crx"));
-        // Disable Info bars
-        chromeOptions.addArguments("disable-infobars");
 
         // Initialize Driver
         driver = new ChromeDriver(chromeOptions);
@@ -40,6 +38,7 @@ public class BaseDriver {
         // Set Implicit Wait
         driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(10));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofMinutes(10));
         logger.info("Driver initialized with implicit wait.");
     }
 
