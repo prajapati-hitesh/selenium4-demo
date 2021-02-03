@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Selenium 4 - Conference Demo Suite" verbose="1">
+    <test name="Selenium 4 - Relative Locators, CDP, Element Capture, Windows Handing Tests">
+        <classes>
+            <class name="com.qa.selenium4.demo.base.BaseDriver"/>
+            <class name="com.qa.selenium4.demo.devtools.BasicAuthenticationTests"/>
+            <class name="com.qa.selenium4.demo.devtools.CaptureHTTPRequestTests"/>
+            <class name="com.qa.selenium4.demo.devtools.CapturingPerformanceMetricTests"/>
+            <class name="com.qa.selenium4.demo.devtools.ConsoleLogTests"/>
+            <class name="com.qa.selenium4.demo.devtools.GeoLocationTests"/>
+            <class name="com.qa.selenium4.demo.devtools.InsecureWebsiteTests"/>
+            <class name="com.qa.selenium4.demo.devtools.NetworkInterceptTests"/>
+            <class name="com.qa.selenium4.demo.devtools.NetworkSimulationTests"/>
+            <class name="com.qa.selenium4.demo.devtools.SimulateDeviceModeTests"/>
+            <class name="com.qa.selenium4.demo.devtools.SimulateTimezoneTests"/>
+            <class name="com.qa.selenium4.demo.devtools.UserAgentSimulationTests"/>
+            <class name="com.qa.selenium4.demo.relativelocators.RelativeLocatorTests"/>
+            <class name="com.qa.selenium4.demo.relativelocators.HighlightBoundingRectTests"/>
+            <class name="com.qa.selenium4.demo.screencapture.CaptureElementScreenshotTests"/>
+            <class name="com.qa.selenium4.demo.windowshandling.WindowHandleTests"/>
+        </classes>
+    </test>
+</suite>
