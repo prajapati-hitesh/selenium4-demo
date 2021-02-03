@@ -35,4 +35,11 @@ public class WaitHelper {
         } catch (Exception ignored) {
         }
     }
+
+    public static void hardWaitInMillis(long timeInMillis) {
+        try {
+            Thread.sleep(timeInMillis);
+        } catch (Exception ignored) {
+        }
+    }
 }
