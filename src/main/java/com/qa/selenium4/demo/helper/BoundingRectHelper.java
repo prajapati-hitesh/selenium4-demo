@@ -97,6 +97,16 @@ public class BoundingRectHelper {
         );
     }
 
+    public void highlightNear(String hexCode, int pixels) {
+        drawRectangle(
+                getTopX() - pixels,
+                getTopY() - pixels,
+                getWidth() + (pixels * 2),
+                getHeight() + (pixels * 2),
+                hexCode
+        );
+    }
+
     private void drawRectangle(double xCord, double yCord, double width, double height, String hexColor) {
         String drawCanvasRectJs =
                 "var x = " + xCord + ";\n" +
