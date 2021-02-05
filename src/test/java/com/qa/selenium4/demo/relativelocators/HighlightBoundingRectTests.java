@@ -58,5 +58,13 @@ public class HighlightBoundingRectTests extends BaseDriver {
         // Highlight area to the Right of "Password" field
         boundingRectHelper.highlightToRightOf("green");
         WaitHelper.hardWait(5);
+        // Refresh Page
+        driver.navigate().refresh();
+
+        // Highlight Area which is at most to X pixels from an element
+        boundingRectHelper.highlightNear("red", 50);
+        boundingRectHelper.highlightNear("black", 100);
+        boundingRectHelper.highlightNear("yellow", 200);
+        boundingRectHelper.highlightNear("green", 400);
     }
 }
