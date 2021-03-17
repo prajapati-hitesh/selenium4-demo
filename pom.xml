@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <selenium4.version>4.0.0-alpha-7</selenium4.version>
+        <selenium4.version>4.0.0-beta-2</selenium4.version>
         <testng.version>7.3.0</testng.version>
         <webdriver.manager.version>4.2.2</webdriver.manager.version>
         <log4j2.version>2.14.0</log4j2.version>
