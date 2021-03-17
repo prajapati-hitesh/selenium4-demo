@@ -45,7 +45,7 @@ public class BaseDriver {
     @AfterMethod(alwaysRun = true)
     public void tearDownBrowser() throws InterruptedException {
 
-        Thread.sleep(5 * 1000);
+        Thread.sleep(2 * 1000);
 
         // Close Browser
         driver.close();
