@@ -29,6 +29,8 @@
         <jsoup.parser.version>1.13.1</jsoup.parser.version>
         <google.guava.version>30.1-jre</google.guava.version>
         <selenium.shutterbug.version>1.3</selenium.shutterbug.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <build>
