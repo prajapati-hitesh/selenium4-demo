@@ -9,8 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v87.network.Network;
-import org.openqa.selenium.devtools.v87.network.model.*;
+import org.openqa.selenium.devtools.v91.network.Network;
+import org.openqa.selenium.devtools.v91.network.model.*;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
