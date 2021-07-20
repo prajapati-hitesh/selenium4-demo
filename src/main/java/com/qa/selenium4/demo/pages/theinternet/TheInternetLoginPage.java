@@ -14,18 +14,18 @@ public class TheInternetLoginPage {
         return new WebDriverWait(driver, Duration.ofSeconds(90))
                 .until(ExpectedConditions
                         .visibilityOfElementLocated(RelativeLocator
-                                .withTagName("h2")
+                                .with(By.tagName("h2"))
                                 .above(By.className("subheader"))
                         )
                 );
     }
 
     public static WebElement usernameElement(WebDriver driver) {
-        return driver.findElement(RelativeLocator.withTagName("input").above(By.id("password")));
+        return driver.findElement(RelativeLocator.with(By.tagName("input")).above(By.id("password")));
     }
 
     public static WebElement passwordElement(WebDriver driver) {
-        return driver.findElement(RelativeLocator.withTagName("input").below(By.id("username")).above(By.className("radius")));
+        return driver.findElement(RelativeLocator.with(By.tagName("input")).below(By.id("username")).above(By.className("radius")));
     }
 
     public static WebElement loginButtonElement(WebDriver driver) {
@@ -38,6 +38,6 @@ public class TheInternetLoginPage {
     }
 
     public static WebElement logOutButtonElement(WebDriver driver) {
-        return driver.findElement(RelativeLocator.withTagName("a").below(By.className("subheader")));
+        return driver.findElement(RelativeLocator.with(By.tagName("a")).below(By.className("subheader")));
     }
 }

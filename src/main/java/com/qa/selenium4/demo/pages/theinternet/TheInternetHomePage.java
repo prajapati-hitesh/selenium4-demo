@@ -9,7 +9,7 @@ public class TheInternetHomePage {
 
     public static WebElement getAuthenticationFormElement(WebDriver driver) {
         return driver.findElement(RelativeLocator
-                .withTagName("a")
+                .with(By.tagName("a"))
                 .below(By.linkText("Forgot Password"))
                 .above(By.linkText("Frames"))
         );
@@ -17,7 +17,7 @@ public class TheInternetHomePage {
 
     public static WebElement headerElement(WebDriver driver) {
         return driver.findElement(RelativeLocator
-                .withTagName("h1")
+                .with(By.tagName("h1"))
                 .above(By.linkText("A/B Testing"))
         );
     }

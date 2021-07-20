@@ -21,7 +21,7 @@ public class DigestAuthPage {
 
     public static WebElement getSuccessMessageElement(WebDriver driver) {
         return driver.findElement(RelativeLocator
-                .withTagName("p")
+                .with(By.tagName("p"))
                 .below(By.tagName("h3"))
                 .above(By.id("page-footer"))
         );

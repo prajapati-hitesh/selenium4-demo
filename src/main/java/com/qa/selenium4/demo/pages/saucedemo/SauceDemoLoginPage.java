@@ -13,14 +13,14 @@ public class SauceDemoLoginPage {
     public static WebElement usernameElement(WebDriver driver) {
         return new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.visibilityOfElementLocated(RelativeLocator
-                        .withTagName("input")
+                        .with(By.tagName("input"))
                         .above(By.id("password"))
                 ));
     }
 
     public static WebElement passwordElement(WebDriver driver) {
         return driver.findElement(RelativeLocator
-                .withTagName("input")
+                .with(By.tagName("input"))
                 .below(By.id("user-name"))
                 .above(By.id("login-button"))
         );
@@ -28,7 +28,7 @@ public class SauceDemoLoginPage {
 
     public static WebElement loginButtonElement(WebDriver driver) {
         return driver.findElement(RelativeLocator
-                .withTagName("input")
+                .with(By.tagName("input"))
                 .below(By.id("password"))
                 .above(By.id("login_credentials"))
         );

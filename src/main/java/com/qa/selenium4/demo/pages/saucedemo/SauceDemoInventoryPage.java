@@ -12,7 +12,7 @@ public class SauceDemoInventoryPage {
 
     public static WebElement backPackCardElement(WebDriver driver) {
         return driver.findElement(RelativeLocator
-                .withTagName("a")
+                .with(By.tagName("a"))
                 .below(By.className("product_label"))
                 .above(By.xpath("//div[text()='Sauce Labs Bolt T-Shirt']"))
         );
