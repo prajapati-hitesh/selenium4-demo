@@ -13,7 +13,7 @@
         <maven.compiler.target>16</maven.compiler.target>
         <selenium4.version>4.0.0-beta-4</selenium4.version>
         <testng.version>7.3.0</testng.version>
-        <webdriver.manager.version>4.2.2</webdriver.manager.version>
+        <webdriver.manager.version>4.4.3</webdriver.manager.version>
         <log4j2.version>2.14.0</log4j2.version>
         <passay.version>1.6.0</passay.version>
         <java.faker.version>1.0.2</java.faker.version>
