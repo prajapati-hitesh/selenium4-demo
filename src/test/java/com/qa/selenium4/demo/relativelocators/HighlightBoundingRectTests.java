@@ -19,7 +19,7 @@ public class HighlightBoundingRectTests extends BaseDriver {
 
         // Get "Email Address" input element
         WebElement emailInputElement = driver.findElement(RelativeLocator
-                .withTagName("input")
+                .with(By.tagName("input"))
                 .above(By.id("passwd"))
                 .toRightOf(By.id("email_create"))
                 .below(By.id("search_query_top"))

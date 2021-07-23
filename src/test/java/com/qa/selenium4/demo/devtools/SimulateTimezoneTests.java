@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v87.emulation.Emulation;
+import org.openqa.selenium.devtools.v91.emulation.Emulation;
 import org.testng.annotations.Test;
 
 import java.time.Duration;

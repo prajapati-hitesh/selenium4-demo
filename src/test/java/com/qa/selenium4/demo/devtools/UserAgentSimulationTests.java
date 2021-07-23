@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v87.network.Network;
+import org.openqa.selenium.devtools.v91.network.Network;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

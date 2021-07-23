@@ -7,8 +7,8 @@ import org.apache.xmlbeans.impl.util.Base64;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v87.network.Network;
-import org.openqa.selenium.devtools.v87.network.model.Headers;
+import org.openqa.selenium.devtools.v91.network.Network;
+import org.openqa.selenium.devtools.v91.network.model.Headers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

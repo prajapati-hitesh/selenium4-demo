@@ -5,8 +5,8 @@ import com.qa.selenium4.demo.helper.WaitHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v87.performance.Performance;
-import org.openqa.selenium.devtools.v87.performance.model.Metric;
+import org.openqa.selenium.devtools.v91.performance.Performance;
+import org.openqa.selenium.devtools.v91.performance.model.Metric;
 import org.testng.annotations.Test;
 
 import java.util.List;

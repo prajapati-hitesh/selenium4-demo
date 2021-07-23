@@ -3,8 +3,8 @@ package com.qa.selenium4.demo.devtools;
 import com.qa.selenium4.demo.base.BaseDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v86.emulation.Emulation;
-import org.openqa.selenium.devtools.v86.emulation.model.ScreenOrientation;
+import org.openqa.selenium.devtools.v91.emulation.Emulation;
+import org.openqa.selenium.devtools.v91.emulation.model.ScreenOrientation;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
