@@ -7,8 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v91.network.Network;
-import org.openqa.selenium.devtools.v91.network.model.ConnectionType;
+import org.openqa.selenium.devtools.v106.network.Network;
+import org.openqa.selenium.devtools.v106.network.model.ConnectionType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -29,8 +29,8 @@ import java.util.Optional;
  */
 public class NetworkSimulationTests extends BaseDriver {
 
-    @Test(priority = 0, dataProvider = "getNetworkSpeeds")
-    public void phpTravelsNetworkSimulationOne(boolean disableNetwork, int latency, int download, int upload) {
+    @Test(priority = 0, dataProvider = "amazonIndiaNetworkSimulation")
+    public void amazonIndiaNetworkSimulation(boolean disableNetwork, int latency, int download, int upload) {
         DevTools chromeDevTools = ((ChromeDriver) driver).getDevTools();
 
         // Create session
@@ -59,7 +59,7 @@ public class NetworkSimulationTests extends BaseDriver {
 
         try {
             // Load URL
-            driver.get("https://www.phptravels.net/");
+            driver.get("https://www.amazon.in/");
         } catch (WebDriverException ignored) {
         }
 
@@ -70,7 +70,7 @@ public class NetworkSimulationTests extends BaseDriver {
 
             // Wait for page to be ready
             new WebDriverWait(driver, Duration.ofMinutes(5))
-                    .until(ExpectedConditions.visibilityOfElementLocated(By.id("dropdownCurrency")));
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.id("nav-logo")));
         } else {
             // Check if all the captured logs matches expected result
             networkLogs.forEach(networkLog -> {
@@ -83,7 +83,7 @@ public class NetworkSimulationTests extends BaseDriver {
         System.out.println("Time taken to load website : " + stopWatch);
     }
 
-    @DataProvider(name = "getNetworkSpeeds")
+    @DataProvider(name = "amazonIndiaNetworkSimulation")
     public Object[][] getNetworkSpeeds() {
         // Speed should be in bytes/sec
         // 1 Mbps   = 1,25,000  bytes/sec ~ 128 KBPS
