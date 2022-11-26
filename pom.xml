@@ -11,24 +11,24 @@
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <selenium4.version>4.0.0-beta-4</selenium4.version>
-        <testng.version>7.3.0</testng.version>
-        <webdriver.manager.version>4.4.3</webdriver.manager.version>
-        <log4j2.version>2.14.0</log4j2.version>
-        <passay.version>1.6.0</passay.version>
+        <selenium4.version>4.5.0</selenium4.version>
+        <testng.version>7.6.1</testng.version>
+        <webdriver.manager.version>5.3.0</webdriver.manager.version>
+        <log4j2.version>2.19.0</log4j2.version>
+        <passay.version>1.6.2</passay.version>
         <java.faker.version>1.0.2</java.faker.version>
-        <jfairy.version>0.6.4</jfairy.version>
+        <jfairy.version>0.6.5</jfairy.version>
         <java.tupple.version>1.2</java.tupple.version>
-        <apache.poi.version>4.1.2</apache.poi.version>
-        <apache.commons.config2.version>2.7</apache.commons.config2.version>
+        <apache.poi.version>5.2.2</apache.poi.version>
+        <apache.commons.config2.version>2.8.0</apache.commons.config2.version>
         <apache.commons.beantutils.version>1.9.4</apache.commons.beantutils.version>
         <apache.commons.email.version>1.5</apache.commons.email.version>
-        <joda.time.version>2.10.9</joda.time.version>
-        <regex.string.generator.version>1.3</regex.string.generator.version>
-        <oshi.core.version>5.3.7</oshi.core.version>
-        <jsoup.parser.version>1.13.1</jsoup.parser.version>
-        <google.guava.version>30.1-jre</google.guava.version>
-        <selenium.shutterbug.version>1.3</selenium.shutterbug.version>
+        <joda.time.version>2.11.2</joda.time.version>
+        <regex.string.generator.version>1.4</regex.string.generator.version>
+        <oshi.core.version>6.2.2</oshi.core.version>
+        <jsoup.parser.version>1.15.3</jsoup.parser.version>
+        <google.guava.version>31.1-jre</google.guava.version>
+        <selenium.shutterbug.version>1.6</selenium.shutterbug.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -284,7 +284,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>13.0</version>
+            <version>23.0.0</version>
         </dependency>
     </dependencies>
 

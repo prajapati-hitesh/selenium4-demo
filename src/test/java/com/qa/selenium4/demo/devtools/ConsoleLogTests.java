@@ -7,8 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v91.log.Log;
-import org.openqa.selenium.devtools.v91.log.model.LogEntry;
+import org.openqa.selenium.devtools.v106.log.Log;
+import org.openqa.selenium.devtools.v106.log.model.LogEntry;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

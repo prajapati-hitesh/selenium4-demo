@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v91.network.Network;
+import org.openqa.selenium.devtools.v106.network.Network;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -80,7 +80,7 @@ public class UserAgentSimulationTests extends BaseDriver {
     }
 
     @DataProvider(name = "userAgents")
-    public Object[] getUserAgents() {
+    public Object[][] getUserAgents() {
         // Get Example of User Agents from below link
         // 01 - https://developers.whatismybrowser.com/useragents/explore/
         // 02 - https://deviceatlas.com/blog/list-of-user-agent-strings

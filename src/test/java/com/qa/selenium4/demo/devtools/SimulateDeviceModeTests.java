@@ -3,8 +3,8 @@ package com.qa.selenium4.demo.devtools;
 import com.qa.selenium4.demo.base.BaseDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v91.emulation.Emulation;
-import org.openqa.selenium.devtools.v91.emulation.model.ScreenOrientation;
+import org.openqa.selenium.devtools.v106.emulation.Emulation;
+import org.openqa.selenium.devtools.v106.emulation.model.ScreenOrientation;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -47,7 +47,7 @@ public class SimulateDeviceModeTests extends BaseDriver {
         );
 
         // load url
-        driver.get("https://www.phptravels.net/");
+        driver.get("https://www.amazon.in/");
     }
 
     @Test(priority = 1, description = "Enable simulation of a device using Emulation.setDeviceMetricsOverride")
@@ -70,6 +70,6 @@ public class SimulateDeviceModeTests extends BaseDriver {
         ((ChromeDriver) driver).executeCdpCommand("Emulation.setDeviceMetricsOverride", deviceMetrics);
 
         // load url
-        driver.get("https://www.phptravels.net/");
+        driver.get("https://www.amazon.in/");
     }
 }
