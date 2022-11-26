@@ -21,7 +21,7 @@ public class RelativeLocatorTests extends BaseDriver {
 
     @Test(priority = 0, description = "Locate elements using RelativeLocator strategy for Selenium Easy Page")
     private void registerTestOnSeleniumEasyPage() {
-        driver.get("https://www.seleniumeasy.com/test/input-form-demo.html");
+        driver.get("http://demo.seleniumeasy.com/input-form-demo.html");
 
         StopWatch stopWatch = new StopWatch();
         // Start Watch
@@ -40,7 +40,7 @@ public class RelativeLocatorTests extends BaseDriver {
         ElementHelper.sendKeys(driver, firstNameElement, "Hitesh");
         ElementHelper.sendKeys(driver, lastNameElement, "Prajapati");
         ElementHelper.sendKeys(driver, emailElement, "hiteshprajapati1992@gmail.com");
-        ElementHelper.sendKeys(driver, phoneElement, "(+91) 9427004603");
+        ElementHelper.sendKeys(driver, phoneElement, "9427004603");
         ElementHelper.sendKeys(driver, addressElement, "A-102, XYZ");
         ElementHelper.sendKeys(driver, cityElement, "Vadodara");
         ElementHelper.selectElementByVisibleText(driver, stateElement, "Indiana");
@@ -54,14 +54,14 @@ public class RelativeLocatorTests extends BaseDriver {
 
     @Test(priority = 1, description = "Locate elements using RelativeLocator strategy for Sauce Demo page")
     public void sauceDemoTest() {
-        driver.get("https://www.saucedemo.com/index.html");
+        driver.get("https://www.saucedemo.com/");
 
         ElementHelper.sendKeys(driver, SauceDemoLoginPage.usernameElement(driver), "standard_user");
         ElementHelper.sendKeys(driver, SauceDemoLoginPage.passwordElement(driver), "secret_sauce");
         ElementHelper.click(driver, SauceDemoLoginPage.loginButtonElement(driver));
 
         // Assert Product text
-        Assert.assertEquals(ElementHelper.getText(driver, SauceDemoInventoryPage.productHeaderElement(driver)), "Products");
+        Assert.assertEquals(ElementHelper.getText(driver, SauceDemoInventoryPage.productHeaderElement(driver)), "PRODUCTS");
 
         WebElement cardElement = SauceDemoInventoryPage.backPackCardElement(driver);
 
@@ -71,45 +71,43 @@ public class RelativeLocatorTests extends BaseDriver {
     @Test(priority = 2, description = "Locate elements using RelativeLocator strategy. Bad Example")
     public void relativeLocatorLoginPageBadExampleTest() {
         // Load URL
-        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        driver.get("https://demoqa.com/automation-practice-form");
 
         // Get "Email Address" input element
-        WebElement emailInputElement = driver.findElement(RelativeLocator
+        WebElement firstNameInputElement = driver.findElement(RelativeLocator
                 .with(By.tagName("input"))
-                .above(By.id("passwd"))
-                .toRightOf(By.id("email_create"))
+                .above(By.id("userEmail"))
         );
 
         // Highlight element and
-        JavaScriptHelper.highlightElement(driver, emailInputElement);
+        JavaScriptHelper.highlightElement(driver, firstNameInputElement);
 
         // Wait for 5 sec
         WaitHelper.hardWait(5);
 
         // Enter Email Address
-        ElementHelper.sendKeys(driver, emailInputElement, "hiteshprajapati1992@gmail.com");
+        ElementHelper.sendKeys(driver, firstNameInputElement, "Hitesh Prajapati");
     }
 
     @Test(priority = 3, description = "Locate elements using RelativeLocator strategy. Good Example")
     public void relativeLocatorLoginPageGoodExampleTest() {
         // Load URL
-        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        driver.get("https://demoqa.com/automation-practice-form");
 
         // Get "Email Address" input element
-        WebElement emailInputElement = driver.findElement(RelativeLocator
+        WebElement firstNameInputElement = driver.findElement(RelativeLocator
                 .with(By.tagName("input"))
-                .above(By.id("passwd"))
-                .toRightOf(By.id("email_create"))
-                .below(By.id("search_query_top"))
+                .above(By.id("userEmail"))
+                .toLeftOf(By.id("lastName"))
         );
 
         // Highlight element and
-        JavaScriptHelper.highlightElement(driver, emailInputElement);
+        JavaScriptHelper.highlightElement(driver, firstNameInputElement);
 
         // Wait for 5 sec
         WaitHelper.hardWait(5);
 
         // Enter Email Address
-        ElementHelper.sendKeys(driver, emailInputElement, "hiteshprajapati1992@gmail.com");
+        ElementHelper.sendKeys(driver, firstNameInputElement, "Hitesh Prajapati");
     }
 }

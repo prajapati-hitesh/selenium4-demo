@@ -7,13 +7,13 @@ import org.openqa.selenium.support.locators.RelativeLocator;
 
 public class SauceDemoInventoryPage {
     public static WebElement productHeaderElement(WebDriver driver) {
-        return driver.findElement(By.className("product_label"));
+        return driver.findElement(By.className("title"));
     }
 
     public static WebElement backPackCardElement(WebDriver driver) {
         return driver.findElement(RelativeLocator
-                .with(By.tagName("a"))
-                .below(By.className("product_label"))
+                .with(By.xpath("//div[@class='inventory_item']"))
+                .below(By.className("title"))
                 .above(By.xpath("//div[text()='Sauce Labs Bolt T-Shirt']"))
         );
     }

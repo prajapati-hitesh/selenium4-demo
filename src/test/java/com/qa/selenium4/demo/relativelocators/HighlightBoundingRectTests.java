@@ -15,14 +15,14 @@ public class HighlightBoundingRectTests extends BaseDriver {
     public void highlightBoundingAreasOfAnElementTest() {
 
         // Load URL
-        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        driver.get("https://practice.automationtesting.in/my-account/");
 
         // Get "Email Address" input element
         WebElement emailInputElement = driver.findElement(RelativeLocator
                 .with(By.tagName("input"))
-                .above(By.id("passwd"))
-                .toRightOf(By.id("email_create"))
-                .below(By.id("search_query_top"))
+                .above(By.id("reg_password"))
+                .toRightOf(By.id("username"))
+                .below(By.xpath("//*[text()='Register']"))
         );
 
         // Highlight element and
@@ -32,7 +32,7 @@ public class HighlightBoundingRectTests extends BaseDriver {
         WaitHelper.hardWait(5);
 
         // Get Bounding Rect Values
-        BoundingRectHelper boundingRectHelper = new BoundingRectHelper(driver, driver.findElement(By.id("passwd")));
+        BoundingRectHelper boundingRectHelper = new BoundingRectHelper(driver, driver.findElement(By.id("reg_password")));
 
         // Highlight area above "Password" field
         boundingRectHelper.highlightAbove("red");
