@@ -1,7 +1,6 @@
 package com.qa.selenium4.demo.base;
 
 import com.qa.selenium4.demo.constants.FileConstants;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +20,7 @@ public class BaseDriver {
     @BeforeMethod(alwaysRun = true)
     public void initializeBrowser() {
         System.setProperty("webdriver.chrome.silentOutput", "true");
-        WebDriverManager.chromedriver().setup();
+       // WebDriverManager.chromedriver().setup(); // Commented this as this has been integrated as a part of Selenium 4.6.0
 
         ChromeOptions chromeOptions = new ChromeOptions();
         // Load Ad Blocker Extension
