@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <selenium4.version>4.5.3</selenium4.version>
+        <selenium4.version>4.6.0</selenium4.version>
         <testng.version>7.6.1</testng.version>
         <webdriver.manager.version>5.3.1</webdriver.manager.version>
         <log4j2.version>2.19.0</log4j2.version>
