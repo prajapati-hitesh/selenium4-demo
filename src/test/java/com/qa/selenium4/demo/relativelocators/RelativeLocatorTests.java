@@ -1,6 +1,6 @@
 package com.qa.selenium4.demo.relativelocators;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.ElementHelper;
 import com.qa.selenium4.demo.helper.JavaScriptHelper;
 import com.qa.selenium4.demo.helper.WaitHelper;
@@ -11,16 +11,25 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class RelativeLocatorTests extends BaseDriver {
+public class RelativeLocatorTests {
     private static final Logger logger = LogManager.getLogger(RelativeLocatorTests.class.getName());
+    private WebDriver driver;
+
+    @BeforeClass(alwaysRun = true)
+    public void setDriverInstance() {
+        this.driver = DriverFactory.getInstance().getDriver();
+    }
 
     @Test(priority = 0, description = "Locate elements using RelativeLocator strategy for Selenium Easy Page")
     private void registerTestOnSeleniumEasyPage() {
+
         driver.get("http://demo.seleniumeasy.com/input-form-demo.html");
 
         StopWatch stopWatch = new StopWatch();

@@ -1,6 +1,6 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v106.emulation.Emulation;
@@ -18,13 +18,13 @@ import java.util.Optional;
  * Please refer to the following URL :
  * https://chromedevtools.github.io/devtools-protocol/tot/Emulation/
  */
-public class SimulateDeviceModeTests extends BaseDriver {
+public class SimulateDeviceModeTests {
 
     @Test(priority = 0, description = "Enable simulation of a device using CDP's send method")
     public void phpTravelsSimulatingDeviceTestOne() {
 
         // Get Dev Tools
-        DevTools devTools = ((ChromeDriver) driver).getDevTools();
+        DevTools devTools = DriverFactory.getInstance().getDevTools();
 
         // Create Session
         devTools.createSession();
@@ -47,14 +47,14 @@ public class SimulateDeviceModeTests extends BaseDriver {
         );
 
         // load url
-        driver.get("https://www.amazon.in/");
+        DriverFactory.getInstance().getDriver().get("https://www.amazon.in/");
     }
 
     @Test(priority = 1, description = "Enable simulation of a device using Emulation.setDeviceMetricsOverride")
     public void phpTravelsSimulatingDeviceTestTwo() {
 
         // Get Dev Tools
-        DevTools devTools = ((ChromeDriver) driver).getDevTools();
+        DevTools devTools = DriverFactory.getInstance().getDevTools();
 
         // Create Session
         devTools.createSession();
@@ -67,9 +67,9 @@ public class SimulateDeviceModeTests extends BaseDriver {
             put("deviceScaleFactor", 1.25);
         }};
 
-        ((ChromeDriver) driver).executeCdpCommand("Emulation.setDeviceMetricsOverride", deviceMetrics);
+        ((ChromeDriver) DriverFactory.getInstance().getDriver()).executeCdpCommand("Emulation.setDeviceMetricsOverride", deviceMetrics);
 
         // load url
-        driver.get("https://www.amazon.in/");
+        DriverFactory.getInstance().getDriver().get("https://www.amazon.in/");
     }
 }

@@ -1,7 +1,7 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
 import com.qa.selenium4.demo.constants.FileConstants;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.utils.DateUtility;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -33,13 +33,13 @@ import java.util.Optional;
  * The client - is based on Safari version 537.36.
  * The engine - responsible for displaying content on this device is AppleWebKit version 537.36 (and KHTML, an open-source layout engine, is present too).
  */
-public class UserAgentSimulationTests extends BaseDriver {
+public class UserAgentSimulationTests {
 
     @Test(priority = 0, description = "To Change the User Agent of browser", dataProvider = "userAgents")
     public void phpTravelsUserAgentSimulationTestOne(String uAOf, String userAgentString) throws InterruptedException, IOException {
 
         // Get Dev Tools Object
-        DevTools chromeDevTools = getDevTools();
+        DevTools chromeDevTools = DriverFactory.getInstance().getDevTools();
 
         // Create a Dev Tool Session
         chromeDevTools.createSession();
@@ -56,12 +56,12 @@ public class UserAgentSimulationTests extends BaseDriver {
         ));
 
         // Load url
-        driver.get("https://gs.statcounter.com/detect");
+        DriverFactory.getInstance().getDriver().get("https://gs.statcounter.com/detect");
 
         Thread.sleep(5000);
 
         // Get Screenshot
-        byte[] imageAsBytes = driver.findElement(By.className("section")).getScreenshotAs(OutputType.BYTES);
+        byte[] imageAsBytes = DriverFactory.getInstance().getDriver().findElement(By.className("section")).getScreenshotAs(OutputType.BYTES);
 
         // Build File Path to store screenshot at
         String uaSSDirPath = FileConstants.SCREENSHOT_ROOT_DIR + FileConstants.FILE_SEPARATOR + "user-agents";
@@ -73,7 +73,7 @@ public class UserAgentSimulationTests extends BaseDriver {
         FileUtils.writeByteArrayToFile(new File(ssFileName), imageAsBytes);
 
         // Load Php Travels
-        driver.get("https://www.amazon.in/");
+        DriverFactory.getInstance().getDriver().get("https://www.amazon.in/");
 
         // wait for page to load
         Thread.sleep(5000);

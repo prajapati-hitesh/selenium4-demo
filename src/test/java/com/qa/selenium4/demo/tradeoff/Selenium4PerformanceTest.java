@@ -1,7 +1,7 @@
 package com.qa.selenium4.demo.tradeoff;
 
-import com.qa.selenium4.demo.base.BaseDriver;
 import com.qa.selenium4.demo.constants.FileConstants;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.ElementHelper;
 import com.qa.selenium4.demo.pages.seleniumeasy.RegisterPage;
 import com.qa.selenium4.json.JSONArray;
@@ -10,17 +10,19 @@ import com.qa.selenium4.json.JSONParser;
 import org.apache.commons.lang3.time.StopWatch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Selenium4PerformanceTest extends BaseDriver {
+public class Selenium4PerformanceTest {
     private static final Logger logger = LogManager.getLogger(Selenium4PerformanceTest.class.getName());
 
     @Test(priority = 0, dataProvider = "getPersonDetails")
     private void executionPerformanceTest(String firstName, String lastName, String email,
                                           String phone, String address, String city,
                                           String state, String zipCode, String website) {
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         driver.get("https://www.seleniumeasy.com/test/input-form-demo.html");
 
         StopWatch stopWatch = new StopWatch();

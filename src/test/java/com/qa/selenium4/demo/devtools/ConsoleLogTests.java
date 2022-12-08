@@ -1,11 +1,10 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.JavaScriptHelper;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v106.log.Log;
 import org.openqa.selenium.devtools.v106.log.model.LogEntry;
@@ -14,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsoleLogTests extends BaseDriver {
+public class ConsoleLogTests {
     private static final Logger logger = LogManager.getLogger(ConsoleLogTests.class.getName());
 
     // https://applitools.com/blog/selenium-4-chrome-devtools/
@@ -35,7 +34,7 @@ public class ConsoleLogTests extends BaseDriver {
     @Test(priority = 0, description = "Get console logs using Chrome Dev Tools")
     public void amazonGetConsoleLogUsingCDPTest() {
         // Create Dev Tools
-        DevTools chromeDevTools = ((ChromeDriver) driver).getDevTools();
+        DevTools chromeDevTools = DriverFactory.getInstance().getDevTools();
 
         // Create Chrome Dev Tools Session
         chromeDevTools.createSession();
@@ -50,10 +49,10 @@ public class ConsoleLogTests extends BaseDriver {
         chromeDevTools.addListener(Log.entryAdded(), logEntries::add);
 
         // Load URL
-        driver.get("https://www.ebay.com/");
+        DriverFactory.getInstance().getDriver().get("https://www.ebay.com/");
 
         // Send Log Using JS Executor
-        JavaScriptHelper.getJsExecutor(driver).executeScript("console.warn('Log From Selenium Script');");
+        JavaScriptHelper.getJsExecutor(DriverFactory.getInstance().getDriver()).executeScript("console.warn('Log From Selenium Script');");
 
         WaitHelper.hardWait(10);
 

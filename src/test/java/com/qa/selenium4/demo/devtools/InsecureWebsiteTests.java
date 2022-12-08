@@ -1,6 +1,6 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,24 +15,24 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class InsecureWebsiteTests extends BaseDriver {
+public class InsecureWebsiteTests {
     private static final Logger logger = LogManager.getLogger(InsecureWebsiteTests.class.getName());
 
     @Test(priority = 0, description = "Load Insecure website normally")
     public void loadInsecureWebsiteNormallyTestOne() {
         // Load Url
-        driver.get("https://expired.badssl.com/");
+        DriverFactory.getInstance().getDriver().get("https://expired.badssl.com/");
 
         // Click on Advanced button
-        driver.findElement(By.id("details-button")).click();
+        DriverFactory.getInstance().getDriver().findElement(By.id("details-button")).click();
 
         // Wait for Proceed Link to load
-        new WebDriverWait(driver, Duration.ofSeconds(30))
+        new WebDriverWait(DriverFactory.getInstance().getDriver(), Duration.ofSeconds(30))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.id("proceed-link")))
                 .click();
 
         // Wait for page to load
-        WebElement headerTextElement = WaitHelper.waitAndGetElement(driver, Duration.ofSeconds(30), By.id("content"));
+        WebElement headerTextElement = WaitHelper.waitAndGetElement(DriverFactory.getInstance().getDriver(), Duration.ofSeconds(30), By.id("content"));
         String headerText = headerTextElement.getText().replaceAll("\\s", "").trim();
 
         logger.info("Captured Header Text : " + headerText);
@@ -43,7 +43,7 @@ public class InsecureWebsiteTests extends BaseDriver {
     public void loadInsecureWebsiteUsingCDPTestOne() {
 
         // Get Chrome Dev Tools
-        DevTools chromeDevTools = getDevTools();
+        DevTools chromeDevTools = DriverFactory.getInstance().getDevTools();
 
         // Create Session
         chromeDevTools.createSession();
@@ -55,10 +55,10 @@ public class InsecureWebsiteTests extends BaseDriver {
         chromeDevTools.send(Security.setIgnoreCertificateErrors(true));
 
         // Load Url
-        driver.get("https://expired.badssl.com/");
+        DriverFactory.getInstance().getDriver().get("https://expired.badssl.com/");
 
         // Wait for page to load
-        WebElement headerTextElement = WaitHelper.waitAndGetElement(driver, Duration.ofSeconds(30), By.id("content"));
+        WebElement headerTextElement = WaitHelper.waitAndGetElement(DriverFactory.getInstance().getDriver(), Duration.ofSeconds(30), By.id("content"));
         String headerText = headerTextElement.getText().replaceAll("\\s", "").trim();
 
         logger.info("Captured Header Text : " + headerText);

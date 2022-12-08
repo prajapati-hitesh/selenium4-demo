@@ -1,7 +1,7 @@
 package com.qa.selenium4.demo.screencapture;
 
-import com.qa.selenium4.demo.base.BaseDriver;
 import com.qa.selenium4.demo.constants.FileConstants;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.pages.saucedemo.SauceDemoLoginPage;
 import com.qa.selenium4.utils.DateUtility;
 import org.apache.commons.io.FileUtils;
@@ -14,20 +14,20 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 
-public class CaptureElementScreenshotTests extends BaseDriver {
+public class CaptureElementScreenshotTests {
 
     private static final String SCREENSHOT_DIR = FileConstants.SCREENSHOT_ROOT_DIR;
 
     @Test(priority = 0, description = "Capture element screenshot using Selenium 4.")
     public void captureElementScreenshotTestOne() throws IOException {
         // Load URL
-        driver.get("https://www.saucedemo.com/");
+        DriverFactory.getInstance().getDriver().get("https://www.saucedemo.com/");
 
         // Wait for Page to load
-        SauceDemoLoginPage.waitForPageToLoad(driver);
+        SauceDemoLoginPage.waitForPageToLoad(DriverFactory.getInstance().getDriver());
 
         // Get Bot Element
-        WebElement sauceBotImageElement = driver.findElement(By.className("bot_column"));
+        WebElement sauceBotImageElement = DriverFactory.getInstance().getDriver().findElement(By.className("bot_column"));
 
         // Print dimension of Bot - getRect is introduced in Selenium 4.
         Rectangle botRect = sauceBotImageElement.getRect();

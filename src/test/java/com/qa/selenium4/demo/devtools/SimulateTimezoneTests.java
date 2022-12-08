@@ -1,6 +1,6 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.ElementHelper;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import org.apache.logging.log4j.LogManager;
@@ -14,19 +14,19 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class SimulateTimezoneTests extends BaseDriver {
+public class SimulateTimezoneTests {
     private static final Logger logger = LogManager.getLogger(SimulateTimezoneTests.class.getName());
 
     @Test(priority = 0, description = "Get Current Time Zone")
     public void getCurrentTimeZoneTest() {
         // Load URL
-        driver.get("https://webbrowsertools.com/timezone/");
+        DriverFactory.getInstance().getDriver().get("https://webbrowsertools.com/timezone/");
 
         // Get Current TimeZone Element
-        WebElement timeZoneElement = WaitHelper.waitAndGetElement(driver, Duration.ofMinutes(1), By.id("timeZone"));
+        WebElement timeZoneElement = WaitHelper.waitAndGetElement(DriverFactory.getInstance().getDriver(), Duration.ofMinutes(1), By.id("timeZone"));
 
         // Get Timezone
-        String currTimeZone = ElementHelper.getText(driver, timeZoneElement);
+        String currTimeZone = ElementHelper.getText(DriverFactory.getInstance().getDriver(), timeZoneElement);
 
         logger.info("Current Time Zone : " + currTimeZone);
 
@@ -40,7 +40,7 @@ public class SimulateTimezoneTests extends BaseDriver {
     @Test(priority = 1, description = "Simulate TimeZone using Chrome Dev Tools")
     public void simulateTimeZoneUsingCDPTest() {
         // Get Dev Tools
-        DevTools chromeDevTools = getDevTools();
+        DevTools chromeDevTools = DriverFactory.getInstance().getDevTools();
 
         // Create Session
         chromeDevTools.createSession();
@@ -51,13 +51,13 @@ public class SimulateTimezoneTests extends BaseDriver {
         chromeDevTools.send(Emulation.setTimezoneOverride("Europe/London"));
 
         // Load URL
-        driver.get("https://webbrowsertools.com/timezone/");
+        DriverFactory.getInstance().getDriver().get("https://webbrowsertools.com/timezone/");
 
         // Get Current TimeZone Element
-        WebElement timeZoneElement = WaitHelper.waitAndGetElement(driver, Duration.ofMinutes(1), By.id("timeZone"));
+        WebElement timeZoneElement = WaitHelper.waitAndGetElement(DriverFactory.getInstance().getDriver(), Duration.ofMinutes(1), By.id("timeZone"));
 
         // Get Timezone
-        String currTimeZone = ElementHelper.getText(driver, timeZoneElement);
+        String currTimeZone = ElementHelper.getText(DriverFactory.getInstance().getDriver(), timeZoneElement);
         logger.info("Current Time Zone : " + currTimeZone);
 
         // Assert Timezone

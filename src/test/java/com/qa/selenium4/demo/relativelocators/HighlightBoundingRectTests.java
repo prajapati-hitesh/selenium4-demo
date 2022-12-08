@@ -1,6 +1,6 @@
 package com.qa.selenium4.demo.relativelocators;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.BoundingRectHelper;
 import com.qa.selenium4.demo.helper.JavaScriptHelper;
 import com.qa.selenium4.demo.helper.WaitHelper;
@@ -9,16 +9,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.Test;
 
-public class HighlightBoundingRectTests extends BaseDriver {
+public class HighlightBoundingRectTests {
 
     @Test(priority = 0, description = "Highlight Bounding Rect Areas With Respect To A Particular Element")
     public void highlightBoundingAreasOfAnElementTest() {
 
         // Load URL
-        driver.get("https://practice.automationtesting.in/my-account/");
+        DriverFactory.getInstance().getDriver().get("https://practice.automationtesting.in/my-account/");
 
         // Get "Email Address" input element
-        WebElement emailInputElement = driver.findElement(RelativeLocator
+        WebElement emailInputElement = DriverFactory.getInstance().getDriver().findElement(RelativeLocator
                 .with(By.tagName("input"))
                 .above(By.id("reg_password"))
                 .toRightOf(By.id("username"))
@@ -26,40 +26,40 @@ public class HighlightBoundingRectTests extends BaseDriver {
         );
 
         // Highlight element and
-        JavaScriptHelper.highlightElement(driver, emailInputElement);
+        JavaScriptHelper.highlightElement(DriverFactory.getInstance().getDriver(), emailInputElement);
 
         // Wait for 5 sec
         WaitHelper.hardWait(5);
 
         // Get Bounding Rect Values
-        BoundingRectHelper boundingRectHelper = new BoundingRectHelper(driver, driver.findElement(By.id("reg_password")));
+        BoundingRectHelper boundingRectHelper = new BoundingRectHelper(DriverFactory.getInstance().getDriver(), DriverFactory.getInstance().getDriver().findElement(By.id("reg_password")));
 
         // Highlight area above "Password" field
         boundingRectHelper.highlightAbove("red");
         WaitHelper.hardWait(5);
 
         // Refresh Page
-        driver.navigate().refresh();
+        DriverFactory.getInstance().getDriver().navigate().refresh();
 
         // Highlight area to the left of "Password" field
         boundingRectHelper.highlightToLeftOf("yellow");
         WaitHelper.hardWait(5);
 
         // Refresh Page
-        driver.navigate().refresh();
+        DriverFactory.getInstance().getDriver().navigate().refresh();
 
         // Highlight area to the Below of "Password" field
         boundingRectHelper.highlightBelow("black");
         WaitHelper.hardWait(5);
 
         // Refresh Page
-        driver.navigate().refresh();
+        DriverFactory.getInstance().getDriver().navigate().refresh();
 
         // Highlight area to the Right of "Password" field
         boundingRectHelper.highlightToRightOf("green");
         WaitHelper.hardWait(5);
         // Refresh Page
-        driver.navigate().refresh();
+        DriverFactory.getInstance().getDriver().navigate().refresh();
 
         // Highlight Area which is at most to X pixels from an element
         boundingRectHelper.highlightNear("red", 50);

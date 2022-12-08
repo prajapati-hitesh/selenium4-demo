@@ -1,6 +1,6 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,13 +12,13 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.Optional;
 
-public class CapturingPerformanceMetricTests extends BaseDriver {
+public class CapturingPerformanceMetricTests {
     private static final Logger logger = LogManager.getLogger(CapturingPerformanceMetricTests.class.getName());
 
     @Test(priority = 0, description = "Capture Performance Metrics Using Chrome Dev Tools")
     public void getPerformanceMetricsUsingCDPTest() {
         // Get Dev Tools
-        DevTools chromeDevTools = getDevTools();
+        DevTools chromeDevTools = DriverFactory.getInstance().getDevTools();
 
         // Create Session
         chromeDevTools.createSession();
@@ -27,7 +27,7 @@ public class CapturingPerformanceMetricTests extends BaseDriver {
         chromeDevTools.send(Performance.enable(Optional.of(Performance.EnableTimeDomain.TIMETICKS)));
 
         // Load URL
-        driver.get("https://www.amazon.in/");
+        DriverFactory.getInstance().getDriver().get("https://www.amazon.in/");
         WaitHelper.hardWait(5);
         List<Metric> performanceMatrix = chromeDevTools.send(Performance.getMetrics());
 

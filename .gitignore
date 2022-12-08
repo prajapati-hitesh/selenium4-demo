@@ -12,6 +12,8 @@
 /screenshot/*
 /automation-logs/*
 /.settings/*
+/http-logs/*
+/http-logs
 
 ## Files exclusion
 *.iml

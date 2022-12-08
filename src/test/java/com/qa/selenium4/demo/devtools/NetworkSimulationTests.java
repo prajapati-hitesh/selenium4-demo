@@ -1,11 +1,10 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.JavaScriptHelper;
 import org.apache.commons.lang3.time.StopWatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v106.network.Network;
 import org.openqa.selenium.devtools.v106.network.model.ConnectionType;
@@ -27,11 +26,11 @@ import java.util.Optional;
  * Please use below url for detailed list of Network simulation options
  * https://chromedevtools.github.io/devtools-protocol/tot/Network/
  */
-public class NetworkSimulationTests extends BaseDriver {
+public class NetworkSimulationTests {
 
     @Test(priority = 0, dataProvider = "amazonIndiaNetworkSimulation")
     public void amazonIndiaNetworkSimulation(boolean disableNetwork, int latency, int download, int upload) {
-        DevTools chromeDevTools = ((ChromeDriver) driver).getDevTools();
+        DevTools chromeDevTools = DriverFactory.getInstance().getDevTools();
 
         // Create session
         chromeDevTools.createSession();
@@ -59,17 +58,17 @@ public class NetworkSimulationTests extends BaseDriver {
 
         try {
             // Load URL
-            driver.get("https://www.amazon.in/");
+            DriverFactory.getInstance().getDriver().get("https://www.amazon.in/");
         } catch (WebDriverException ignored) {
         }
 
         // If network is not disabled.
         if (!disableNetwork) {
             // Wait for JS to load
-            JavaScriptHelper.waitForJStoLoad(driver, Duration.ofMinutes(5));
+            JavaScriptHelper.waitForJStoLoad(DriverFactory.getInstance().getDriver(), Duration.ofMinutes(5));
 
             // Wait for page to be ready
-            new WebDriverWait(driver, Duration.ofMinutes(5))
+            new WebDriverWait(DriverFactory.getInstance().getDriver(), Duration.ofMinutes(5))
                     .until(ExpectedConditions.visibilityOfElementLocated(By.id("nav-logo")));
         } else {
             // Check if all the captured logs matches expected result

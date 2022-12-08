@@ -1,6 +1,6 @@
 package com.qa.selenium4.demo.windowshandling;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.ElementHelper;
 import com.qa.selenium4.demo.pages.saucedemo.SauceDemoLoginPage;
 import com.qa.selenium4.demo.pages.theinternet.TheInternetHomePage;
@@ -17,95 +17,95 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WindowHandleTests extends BaseDriver {
+public class WindowHandleTests {
     private static final Logger logger = LogManager.getLogger(WindowHandleTests.class.getName());
 
     @Test(priority = 0, description = "Working with Windows using Selenium 4")
     public void windowSwitchTest() {
         // Load URL in 1st window
-        driver.get("https://www.saucedemo.com/");
+        DriverFactory.getInstance().getDriver().get("https://www.saucedemo.com/");
 
         // Wait for Sauce Login Page to be ready
-        SauceDemoLoginPage.waitForPageToLoad(driver);
+        SauceDemoLoginPage.waitForPageToLoad(DriverFactory.getInstance().getDriver());
 
         // Open 2nd Window
-        driver.switchTo().newWindow(WindowType.WINDOW);
+        DriverFactory.getInstance().getDriver().switchTo().newWindow(WindowType.WINDOW);
 
         // Load URL in 2nd Window
-        driver.get("https://the-internet.herokuapp.com/");
+        DriverFactory.getInstance().getDriver().get("https://the-internet.herokuapp.com/");
 
         // Login
-        theInternetLogin(driver);
+        theInternetLogin(DriverFactory.getInstance().getDriver());
 
         // Switch to 1st window
-        List<String> windows = new ArrayList<>(driver.getWindowHandles());
+        List<String> windows = new ArrayList<>(DriverFactory.getInstance().getDriver().getWindowHandles());
         // Print window IDs
         windows.forEach(logger::info);
 
         // Switch to 1st window
-        driver.switchTo().window(windows.get(0));
+        DriverFactory.getInstance().getDriver().switchTo().window(windows.get(0));
 
         // Login To Sauce Page
-        SauceDemoLoginPage.usernameElement(driver).sendKeys("standard_user");
-        SauceDemoLoginPage.passwordElement(driver).sendKeys("secret_sauce");
-        SauceDemoLoginPage.loginButtonElement(driver).click();
+        SauceDemoLoginPage.usernameElement(DriverFactory.getInstance().getDriver()).sendKeys("standard_user");
+        SauceDemoLoginPage.passwordElement(DriverFactory.getInstance().getDriver()).sendKeys("secret_sauce");
+        SauceDemoLoginPage.loginButtonElement(DriverFactory.getInstance().getDriver()).click();
     }
 
     @Test(priority = 1, description = "Working with Multiple Tabs Using Selenium 4")
     public void tabSwitchTest() {
         // Load URL in 1st window
-        driver.get("https://www.saucedemo.com/");
+        DriverFactory.getInstance().getDriver().get("https://www.saucedemo.com/");
 
         // Wait for Sauce Login Page to be ready
-        SauceDemoLoginPage.waitForPageToLoad(driver);
+        SauceDemoLoginPage.waitForPageToLoad(DriverFactory.getInstance().getDriver());
 
         // Open 2nd Window
-        driver.switchTo().newWindow(WindowType.TAB);
+        DriverFactory.getInstance().getDriver().switchTo().newWindow(WindowType.TAB);
 
         // Load URL in 2nd Window
-        driver.get("https://the-internet.herokuapp.com/");
+        DriverFactory.getInstance().getDriver().get("https://the-internet.herokuapp.com/");
 
         // Login
-        theInternetLogin(driver);
+        theInternetLogin(DriverFactory.getInstance().getDriver());
 
         // Switch to 1st window
-        List<String> windows = new ArrayList<>(driver.getWindowHandles());
+        List<String> windows = new ArrayList<>(DriverFactory.getInstance().getDriver().getWindowHandles());
 
         // Print window IDs
         windows.forEach(logger::info);
 
         // Switch to 1st window
-        driver.switchTo().window(windows.get(0));
+        DriverFactory.getInstance().getDriver().switchTo().window(windows.get(0));
 
         // Login To Sauce Page
-        SauceDemoLoginPage.usernameElement(driver).sendKeys("standard_user");
-        SauceDemoLoginPage.passwordElement(driver).sendKeys("secret_sauce");
-        SauceDemoLoginPage.loginButtonElement(driver).click();
+        SauceDemoLoginPage.usernameElement(DriverFactory.getInstance().getDriver()).sendKeys("standard_user");
+        SauceDemoLoginPage.passwordElement(DriverFactory.getInstance().getDriver()).sendKeys("secret_sauce");
+        SauceDemoLoginPage.loginButtonElement(DriverFactory.getInstance().getDriver()).click();
     }
 
     private void theInternetLogin(WebDriver driverObj) {
         // Get Current base url
         if (StringUtility.getBaseUrl(driverObj.getCurrentUrl()).equalsIgnoreCase("https://the-internet.herokuapp.com/")) {
             // Get Header Element from 2nd Window
-            WebElement headerElement = TheInternetHomePage.headerElement(driver);
+            WebElement headerElement = TheInternetHomePage.headerElement(DriverFactory.getInstance().getDriver());
 
             // Assert header text on 2nd window
             Assert.assertEquals(
-                    ElementHelper.getText(driver, headerElement),
+                    ElementHelper.getText(DriverFactory.getInstance().getDriver(), headerElement),
                     "Welcome to the-internet",
                     "Assertion for header text failed"
             );
 
             // Get Form Authentication link
             ElementHelper.click(
-                    driver,
-                    TheInternetHomePage.getAuthenticationFormElement(driver)
+                    DriverFactory.getInstance().getDriver(),
+                    TheInternetHomePage.getAuthenticationFormElement(DriverFactory.getInstance().getDriver())
             );
 
             // Get Header Text
             String actualHeaderText = ElementHelper.getText(
-                    driver,
-                    TheInternetLoginPage.getHeaderElement(driver)
+                    DriverFactory.getInstance().getDriver(),
+                    TheInternetLoginPage.getHeaderElement(DriverFactory.getInstance().getDriver())
             );
 
             // Assert text
@@ -113,28 +113,28 @@ public class WindowHandleTests extends BaseDriver {
 
             // Enter UserName
             ElementHelper.sendKeys(
-                    driver,
-                    TheInternetLoginPage.usernameElement(driver),
+                    DriverFactory.getInstance().getDriver(),
+                    TheInternetLoginPage.usernameElement(DriverFactory.getInstance().getDriver()),
                     "tomsmith"
             );
 
             // Enter Password
             ElementHelper.sendKeys(
-                    driver,
-                    TheInternetLoginPage.passwordElement(driver),
+                    DriverFactory.getInstance().getDriver(),
+                    TheInternetLoginPage.passwordElement(DriverFactory.getInstance().getDriver()),
                     "SuperSecretPassword!"
             );
 
             // Click Login Button
             ElementHelper.click(
-                    driver,
-                    TheInternetLoginPage.loginButtonElement(driver)
+                    DriverFactory.getInstance().getDriver(),
+                    TheInternetLoginPage.loginButtonElement(DriverFactory.getInstance().getDriver())
             );
 
             // Assert Success Message
             String actualMessageOnFlash = ElementHelper.getText(
-                    driver,
-                    TheInternetLoginPage.flashMessageElement(driver)
+                    DriverFactory.getInstance().getDriver(),
+                    TheInternetLoginPage.flashMessageElement(DriverFactory.getInstance().getDriver())
             ).split("\\n")[0];
 
             Assert.assertEquals(actualMessageOnFlash, "You logged into a secure area!", "Login flash message verification failed");

@@ -1,9 +1,12 @@
 package com.qa.selenium4.demo.devtools;
 
-import com.qa.selenium4.demo.base.BaseDriver;
+import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import com.qa.selenium4.json.JSONArray;
 import com.qa.selenium4.json.JSONObject;
+import com.qa.selenium4.utils.DateUtility;
+import com.qa.selenium4.utils.SystemUtility;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,19 +16,21 @@ import org.openqa.selenium.devtools.v106.network.Network;
 import org.openqa.selenium.devtools.v106.network.model.*;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CaptureHTTPRequestTests extends BaseDriver {
+public class CaptureHTTPRequestTests {
 
     private static final Logger logger = LogManager.getLogger(CaptureHTTPRequestTests.class.getName());
 
     @Test(priority = 0, description = "Capture HTTP Requests using Chrome Dev Tools")
-    public void captureHTTPRequestsUsingCDPTestOne() {
+    public void captureHTTPRequestsUsingCDPTestOne() throws IOException {
         // Create Dev Tools Object
-        DevTools devTools = getDevTools();
+        DevTools devTools = DriverFactory.getInstance().getDevTools();
 
         // Create Session
         devTools.createSession();
@@ -98,11 +103,11 @@ public class CaptureHTTPRequestTests extends BaseDriver {
             responseJsonObject.put("StatusCode", response.getStatus());
             responseJsonObject.put("StatusText", !StringUtils.isBlank(response.getStatusText()) ? response.getStatusText() : JSONObject.NULL);
             responseJsonObject.put("MimeType", response.getMimeType());
-            responseJsonObject.put("RemoteIP", response.getRemoteIPAddress().get() + ":" + response.getRemotePort().get());
-            responseJsonObject.put("FromDiskCache?", response.getFromDiskCache().get());
-            responseJsonObject.put("Timing", response.getTiming().get().getRequestTime());
-            responseJsonObject.put("ResponseTime", response.getResponseTime().get().toString());
-            responseJsonObject.put("Protocol", response.getProtocol().get());
+            responseJsonObject.put("RemoteIP", response.getRemoteIPAddress().isPresent() && response.getRemotePort().isPresent() ? response.getRemoteIPAddress().get() + ":" + response.getRemotePort().get() : JSONObject.NULL);
+            responseJsonObject.put("FromDiskCache?", response.getFromDiskCache().isPresent() ? response.getFromDiskCache().get() : JSONObject.NULL);
+            responseJsonObject.put("Timing", response.getTiming().isPresent() ? response.getTiming().get().getRequestTime() : JSONObject.NULL);
+            responseJsonObject.put("ResponseTime", response.getResponseTime().isPresent() ? response.getResponseTime().get().toString() : JSONObject.NULL);
+            responseJsonObject.put("Protocol", response.getProtocol().isPresent() ? response.getProtocol().get() : JSONObject.NULL);
 
             JSONObject responseHeadersJsonObject = new JSONObject();
 
@@ -121,10 +126,10 @@ public class CaptureHTTPRequestTests extends BaseDriver {
         });
 
         // Load URL
-        driver.get("https://www.amazon.in/");
+        DriverFactory.getInstance().getDriver().get("https://www.amazon.in/");
 
         WaitHelper.waitUntilElementIsVisible(
-                driver,
+                DriverFactory.getInstance().getDriver(),
                 Duration.ofMinutes(1),
                 By.id("twotabsearchtextbox")
         ).sendKeys("Apple Iphone 12 Pro");
@@ -132,7 +137,13 @@ public class CaptureHTTPRequestTests extends BaseDriver {
         // Sleep for 5
         WaitHelper.hardWait(3);
 
-        System.out.println(sentNetworkLogs);
-        System.out.println(receivedNetworkLogs);
+        System.out.println(capturedRequestJsonArray);
+        String USER_DIR = SystemUtility.getUserDirectory();
+        String FILE_SEPARATOR = SystemUtility.getFileSeparator();
+        String requestPath = USER_DIR + FILE_SEPARATOR + "http-capture" + FILE_SEPARATOR + "request-" + DateUtility.getCurrentTimeStampWithFormatAs("ddMMyyyy-HH.mm.ss.SSS") + ".json";
+        String responsePath = USER_DIR + FILE_SEPARATOR + "http-capture" + FILE_SEPARATOR + "response-" + DateUtility.getCurrentTimeStampWithFormatAs("ddMMyyyy-HH.mm.ss.SSS") + ".json";
+        FileUtils.writeStringToFile(new File(requestPath), String.valueOf(capturedRequestJsonArray), "UTF-8");
+        FileUtils.writeStringToFile(new File(responsePath), String.valueOf(responseReceivedJsonArray), "UTF-8");
+        System.out.println(responseReceivedJsonArray);
     }
 }
