@@ -7,6 +7,12 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ActionHelper {
 
+    public static void sendKeys(WebDriver driver, WebElement element, CharSequence text) {
+        new Actions(driver)
+                .sendKeys(element, text.toString())
+                .build().perform();
+    }
+
     public static void moveToElement(WebDriver driver, By by) {
         new Actions(driver)
                 .moveToElement(driver.findElement(by))

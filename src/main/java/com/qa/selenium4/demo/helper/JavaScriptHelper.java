@@ -2,6 +2,7 @@ package com.qa.selenium4.demo.helper;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,13 @@ public class JavaScriptHelper {
         }
     }
 
+    public static void highlightElement(WebDriver driver, By by) {
+        try {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style', 'background-color:#FFFF66; border:2px solid red;');", driver.findElement(by));
+        } catch (Exception ignored) {
+        }
+    }
+
     public static JavascriptExecutor getJsExecutor(WebDriver driver) {
         return ((JavascriptExecutor) driver);
     }
@@ -27,6 +35,13 @@ public class JavaScriptHelper {
     public static void unHighlightElement(WebDriver driver, WebElement element) {
         try {
             ((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('style', 'background-color:#FFFF66; border:2px solid red;');", element);
+        } catch (Exception ignored) {
+        }
+    }
+
+    public static void unHighlightElement(WebDriver driver, By by) {
+        try {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('style', 'background-color:#FFFF66; border:2px solid red;');", driver.findElement(by));
         } catch (Exception ignored) {
         }
     }

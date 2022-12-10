@@ -11,10 +11,12 @@
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <selenium4.version>4.6.0</selenium4.version>
+        <selenium4.version>4.5.3</selenium4.version>
         <testng.version>7.6.1</testng.version>
+        <cucumber.version>7.8.1</cucumber.version>
         <webdriver.manager.version>5.3.1</webdriver.manager.version>
         <log4j2.version>2.19.0</log4j2.version>
+        <easy.random.core.version>5.0.0</easy.random.core.version>
         <passay.version>1.6.2</passay.version>
         <java.faker.version>1.0.2</java.faker.version>
         <jfairy.version>0.6.5</jfairy.version>
@@ -31,6 +33,8 @@
         <selenium.shutterbug.version>1.6</selenium.shutterbug.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <assertj.core.version>3.23.1</assertj.core.version>
+        <assertj.guava.version>3.5.0</assertj.guava.version>
     </properties>
 
     <build>
@@ -285,6 +289,51 @@
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>23.0.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jeasy/easy-random -->
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-random-core</artifactId>
+            <version>${easy.random.core.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+        <!-- A core module to provide assertions for JDK types (String, Iterable, Stream, Path, File, Map...) -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.core.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-guava -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-guava</artifactId>
+            <version>${assertj.guava.version}</version>
         </dependency>
     </dependencies>
 

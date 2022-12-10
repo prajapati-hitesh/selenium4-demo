@@ -100,6 +100,10 @@ public class DriverFactory {
                 .setDriver(null);
     }
 
+    public void setUrl(String webUrl) {
+        ThreadLocalSEDriver.getDriver().get(webUrl);
+    }
+
     public DevTools getDevTools() {
         if (ThreadLocalSEDriver.getDriver() instanceof ChromeDriver) {
             return (((ChromeDriver) ThreadLocalSEDriver.getDriver()).getDevTools());
