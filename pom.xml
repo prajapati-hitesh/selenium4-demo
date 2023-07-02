@@ -6,35 +6,35 @@
 
     <groupId>com.qa.selenium4.demo</groupId>
     <artifactId>selenium4-demo</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <selenium4.version>4.5.3</selenium4.version>
-        <testng.version>7.6.1</testng.version>
-        <cucumber.version>7.8.1</cucumber.version>
-        <webdriver.manager.version>5.3.1</webdriver.manager.version>
-        <log4j2.version>2.19.0</log4j2.version>
+        <selenium4.version>4.10.0</selenium4.version>
+        <testng.version>7.8.0</testng.version>
+        <cucumber.version>7.12.1</cucumber.version>
+        <webdriver.manager.version>5.4.0</webdriver.manager.version>
+        <log4j2.version>2.20.0</log4j2.version>
         <easy.random.core.version>5.0.0</easy.random.core.version>
-        <passay.version>1.6.2</passay.version>
+        <passay.version>1.6.3</passay.version>
         <java.faker.version>1.0.2</java.faker.version>
         <jfairy.version>0.6.5</jfairy.version>
         <java.tupple.version>1.2</java.tupple.version>
-        <apache.poi.version>5.2.2</apache.poi.version>
-        <apache.commons.config2.version>2.8.0</apache.commons.config2.version>
+        <apache.poi.version>5.2.3</apache.poi.version>
+        <apache.commons.config2.version>2.9.0</apache.commons.config2.version>
         <apache.commons.beantutils.version>1.9.4</apache.commons.beantutils.version>
         <apache.commons.email.version>1.5</apache.commons.email.version>
-        <joda.time.version>2.12.1</joda.time.version>
+        <joda.time.version>2.12.5</joda.time.version>
         <regex.string.generator.version>1.4</regex.string.generator.version>
-        <oshi.core.version>6.3.2</oshi.core.version>
-        <jsoup.parser.version>1.15.3</jsoup.parser.version>
+        <oshi.core.version>6.4.3</oshi.core.version>
+        <jsoup.parser.version>1.16.1</jsoup.parser.version>
         <google.guava.version>31.1-jre</google.guava.version>
         <selenium.shutterbug.version>1.6</selenium.shutterbug.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <assertj.core.version>3.23.1</assertj.core.version>
-        <assertj.guava.version>3.5.0</assertj.guava.version>
+        <assertj.core.version>3.24.2</assertj.core.version>
+        <assertj.guava.version>3.24.2</assertj.guava.version>
     </properties>
 
     <build>
@@ -288,7 +288,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>23.0.0</version>
+            <version>24.0.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
         <dependency>
