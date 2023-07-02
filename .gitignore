@@ -14,6 +14,7 @@
 /.settings/*
 /http-logs/*
 /http-logs
+/appium-server-logs/
 
 ## Files exclusion
 *.iml

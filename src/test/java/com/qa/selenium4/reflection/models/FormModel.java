@@ -3,6 +3,7 @@ package com.qa.selenium4.reflection.models;
 import com.qa.selenium4.reflection.enums.FieldType;
 import com.qa.selenium4.reflection.enums.FormComponents;
 import com.qa.selenium4.reflection.enums.FormLabels;
+import com.qa.selenium4.reflection.enums.ScreenLabels;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -20,6 +21,13 @@ public record FormModel(Optional<?> label, Optional<FieldType> fieldType, Option
         Objects.requireNonNull(type);
         Objects.requireNonNull(value);
         return new FormModel(Optional.of(components), Optional.of(type), Optional.of(value));
+    }
+
+    public static FormModel with(ScreenLabels formLabel, FieldType type, Object value) {
+        Objects.requireNonNull(formLabel);
+        Objects.requireNonNull(type);
+        Objects.requireNonNull(value);
+        return new FormModel(Optional.of(formLabel), Optional.of(type), Optional.of(value));
     }
 
 }

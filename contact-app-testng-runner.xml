@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Boilerplate Suite - Native App Suite" parallel="tests">
+    <parameter name="appium-server-ip" value="127.0.0.1"/>
+
+    <test name="Calculator Test - Xiaomi - Mi A1">
+        <parameter name="device-name" value="Mi A1"/>
+        <parameter name="platform-name" value="Android"/>
+        <parameter name="platform-version" value="12.0"/>
+        <parameter name="udid" value="338b5cfc0404"/>
+        <parameter name="automation-name" value="UiAutomator2"/>
+        <parameter name="wda-system-port" value="8201"/>
+        <parameter name="app-package" value="com.google.android.contacts"/>
+        <parameter name="app-activity" value="com.android.contacts.activities.PeopleActivity"/>
+        <classes>
+            <class name="com.qa.selenium4.reflection.runners.GoogleContactRunner"/>
+        </classes>
+    </test>
+</suite>

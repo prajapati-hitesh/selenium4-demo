@@ -16,7 +16,7 @@ Feature: Orange HRM : Update & Validate Logged In User Details
   Scenario: Update & Validate Logged In User Details
 
     Given User is on Dashboard page
-    When I navigate to My Info
+    When I navigate to My Infod
     And For the following field, I update a user details with mentioned values
 
       | FieldName               | FieldType | Value / Action |

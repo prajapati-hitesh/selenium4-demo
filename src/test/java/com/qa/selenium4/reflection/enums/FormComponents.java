@@ -1,5 +1,6 @@
 package com.qa.selenium4.reflection.enums;
 
+import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 
 import java.util.Arrays;
@@ -10,8 +11,8 @@ import static java.util.stream.Collectors.toMap;
 
 public enum FormComponents {
     LOGIN("Login", By.xpath("//button[normalize-space()='Login']"), FieldType.BUTTON, ActionType.CLICK),
-    SAVE_EMPLOYEE("Employee Details Save", By.xpath("//div[contains(@class,'orangehrm-horizontal-padding')]//button[normalize-space()='Save']"), FieldType.BUTTON, ActionType.CLICK);
-
+    SAVE_EMPLOYEE("Employee Details Save", By.xpath("//div[contains(@class,'orangehrm-horizontal-padding')]//button[normalize-space()='Save']"), FieldType.BUTTON, ActionType.CLICK),
+    SAVE_CONTACT("Contact Details Save", AppiumBy.id("com.google.android.contacts:id/toolbar_button"), FieldType.BUTTON, ActionType.CLICK);
     private static final Map<String, FormComponents> enumMAP;
 
     static {
