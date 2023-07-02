@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v106.network.Network;
+import org.openqa.selenium.devtools.v114.network.Network;
 import org.testng.annotations.Test;
 
 import java.util.Optional;

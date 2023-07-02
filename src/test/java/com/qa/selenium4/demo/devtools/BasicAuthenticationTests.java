@@ -7,8 +7,8 @@ import org.bouncycastle.util.encoders.Base64;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v106.network.Network;
-import org.openqa.selenium.devtools.v106.network.model.Headers;
+import org.openqa.selenium.devtools.v114.network.Network;
+import org.openqa.selenium.devtools.v114.network.model.Headers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

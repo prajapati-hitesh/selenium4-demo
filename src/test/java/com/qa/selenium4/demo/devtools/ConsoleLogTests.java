@@ -6,8 +6,8 @@ import com.qa.selenium4.demo.helper.WaitHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v106.log.Log;
-import org.openqa.selenium.devtools.v106.log.model.LogEntry;
+import org.openqa.selenium.devtools.v114.log.Log;
+import org.openqa.selenium.devtools.v114.log.model.LogEntry;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

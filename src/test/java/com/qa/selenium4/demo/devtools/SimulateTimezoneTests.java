@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v106.emulation.Emulation;
+import org.openqa.selenium.devtools.v114.emulation.Emulation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

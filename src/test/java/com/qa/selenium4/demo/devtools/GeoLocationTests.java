@@ -4,7 +4,7 @@ import com.qa.selenium4.demo.driver.DriverFactory;
 import com.qa.selenium4.demo.helper.WaitHelper;
 import com.qa.selenium4.demo.pages.whatsmylocation.WhatsMyLocationPage;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v106.emulation.Emulation;
+import org.openqa.selenium.devtools.v114.emulation.Emulation;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
