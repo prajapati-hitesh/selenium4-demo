@@ -107,12 +107,17 @@ public enum FormLabels {
     }
 
     private Object generate(Object classObject, ParameterModel... parameterModels) {
-        List<? extends Class<?>> parameterTypes = Arrays.stream(parameterModels).map(ParameterModel::type).toList();
-        Object[] parameterValues = Arrays.stream(parameterModels).map(e -> e.value() != null ? e.value() : e.values()).toArray();
+        List<? extends Class<?>> parameterTypes = Arrays.stream(parameterModels)
+                .map(ParameterModel::type).toList();
+
+        Object[] parameterValues = Arrays.stream(parameterModels)
+                .map(e -> e.value() != null ? e.value() : e.values())
+                .toArray();
         try {
             return classObject.getClass()
                     .getDeclaredMethod(getFakerDataModel().methodName(), parameterTypes.toArray(new Class[0]))
                     .invoke(classObject, parameterValues);
+
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
